@@ -24,7 +24,7 @@ public class CharacterInformation : SerializedScriptableObject
         } 
         set 
         {
-            currentHealth = Mathf.Max(0, currentHealth += value); 
+            currentHealth = Mathf.Max(0, value); 
         } 
     }
 
@@ -38,7 +38,7 @@ public class CharacterInformation : SerializedScriptableObject
         }
         set
         {
-            currentGold = Mathf.Max(0, currentGold += value);
+            currentGold = Mathf.Max(0, value);
         }
     }
 

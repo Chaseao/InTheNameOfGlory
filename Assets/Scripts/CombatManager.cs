@@ -6,14 +6,22 @@ using System;
 
 public class CombatManager : SerializedMonoBehaviour
 {
-    [SerializeField] Dictionary<Controller.Direction, Player> playerCombatants;
-    [SerializeField] Dictionary<Controller.Direction, Combatant> enemyCombatants;
+    enum InputTypes
+    {
+        none,
+        left,
+        right
+    }
+
+    [SerializeField] Dictionary<Controller.Direction, Player> playerCombatants = new Dictionary<Controller.Direction, Player>();
+    [SerializeField] Dictionary<Controller.Direction, Enemy> enemyCombatants = new Dictionary<Controller.Direction, Enemy>();
 
     List<Player> playerOrder;
-    List<Combatant> enemyOrder;
+    List<Enemy> enemyOrder;
 
-    bool validInputRecieved;
-    Controller.Direction lastInput;
+    Controller.Direction lastInputDirection;
+    InputTypes lastInputType = InputTypes.none;
+
     Combatant targetSelection;
     Controller.Direction actionSelection;
 
@@ -21,7 +29,7 @@ public class CombatManager : SerializedMonoBehaviour
     {
         Debug.Log("Starting the game...");
         playerOrder = new List<Player>(playerCombatants.Values);
-        enemyOrder = new List<Combatant>(enemyCombatants.Values);
+        enemyOrder = new List<Enemy>(enemyCombatants.Values);
         
         StartCoroutine(StartNewCombat());
     }
@@ -30,50 +38,81 @@ public class CombatManager : SerializedMonoBehaviour
     {
         while(playerCombatants.Count > 0 && enemyCombatants.Count > 0)
         {
-            StartCoroutine(StartNewRound());
+            yield return StartNewRound();
         }
-
-        yield return null;
     }
 
     private IEnumerator StartNewRound()
     {
         foreach (Player player in playerOrder)
         {
-            validInputRecieved = false;
-            GetActionInput();
-            yield return new WaitUntil(() => validInputRecieved);
+            Debug.Log("It is " + player.name + " turn");
+            yield return GetActionInput();
+            Debug.Log("Action Selected: " + actionSelection.ToString());
+            yield return GetTargetInput();
+            Debug.Log("Target Selected: " + targetSelection.name);
 
-            validInputRecieved = false;
-            StartCoroutine(GetTargetInput());
-            yield return new WaitUntil(() => validInputRecieved);
+            player.TakeInput(actionSelection, targetSelection);
+        }
+        foreach (Enemy enemy in enemyOrder)
+        {
+            Debug.Log("It is " + enemy.name + " turn");
+
+            Player randomTarget = playerOrder[UnityEngine.Random.Range(0, playerOrder.Count - 1)];
+            Debug.Log("Target Selected: " + randomTarget.name);
+
+            enemy.PerformRandomAction(randomTarget);
         }
     }
 
-    private void GetActionInput()
+    private IEnumerator GetActionInput()
     {
-        bool inputWasValid = false;
-        bool inputRecieved = false;
-        Action notifyThatInputRecieved = () => inputRecieved = true;
+        Controller.leftInput += GetLeftInput;
 
-        while (!inputWasValid)
-        {
-            Controller.leftInput += GetInput;
-            Controller.rightInput += GetInput;
-            while (!inputRecieved)
-            {
+        lastInputType = InputTypes.none;
+        yield return new WaitUntil(() => lastInputType.Equals(InputTypes.left));
+        actionSelection = lastInputDirection;
 
-            }
-        }
+        Controller.leftInput -= GetLeftInput;
     }
 
     private IEnumerator GetTargetInput()
     {
-        throw new NotImplementedException();
+        bool inputWasValid = false;
+        
+        Controller.leftInput += GetLeftInput;
+        Controller.rightInput += GetRightInput;
+
+        while (!inputWasValid)
+        {
+            lastInputType = InputTypes.none;
+            yield return new WaitUntil(() => !lastInputType.Equals(InputTypes.none));
+
+            if (lastInputType.Equals(InputTypes.left) && playerCombatants.ContainsKey(lastInputDirection))
+            {
+                targetSelection = playerCombatants[lastInputDirection];
+                inputWasValid = true;
+            }
+            else if (lastInputType.Equals(InputTypes.right) && enemyCombatants.ContainsKey(lastInputDirection))
+            {
+                targetSelection = enemyCombatants[lastInputDirection];
+                inputWasValid = true;
+            }
+        }
+
+        Controller.leftInput -= GetLeftInput;
+        Controller.rightInput -= GetRightInput;
     }
 
-    public void GetInput(Controller.Direction input)
+    private void GetLeftInput(Controller.Direction input)
     {
-        lastInput = input;
+        lastInputDirection = input;
+        lastInputType = InputTypes.left;
+    }
+
+    public void GetRightInput(Controller.Direction input)
+    {
+        lastInputDirection = input;
+        lastInputType = InputTypes.right;
     }
 }

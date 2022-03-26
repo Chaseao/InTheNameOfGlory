@@ -24,7 +24,6 @@ public class Controller : MonoBehaviour
 
         if (context.started)
         {
-            Debug.Log("Left " + direction.ToString());
             leftInput?.Invoke(direction);
         }
     }
@@ -35,7 +34,6 @@ public class Controller : MonoBehaviour
 
         if (context.started)
         {
-            Debug.Log("Right " + direction.ToString());
             rightInput?.Invoke(direction);
         }
     }

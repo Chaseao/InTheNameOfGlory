@@ -4,6 +4,11 @@ public abstract class Combatant : MonoBehaviour
 {
     [SerializeField] protected CharacterInformation characterInformation;
 
+    private void OnEnable()
+    {
+        characterInformation.ResetHealth();
+    }
+
     protected void PerformAction(Combatant target, ActionInformation action)
     {
         switch (action.Type)
