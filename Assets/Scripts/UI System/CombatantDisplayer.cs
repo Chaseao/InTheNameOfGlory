@@ -46,7 +46,10 @@ public class ActionTargetDisplayer : MonoBehaviour
     {
         Clear();
 
-        foreach(Player player in )
+        foreach(var player in players)
+        {
+            
+        }
         
     }
 
