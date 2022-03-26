@@ -11,7 +11,7 @@
 /[Uu]ser[Ss]ettings/
 
 #ignore Assest metafiles
-Plugins/
+Assets/Plugins/
 *.[meta]
 
 
