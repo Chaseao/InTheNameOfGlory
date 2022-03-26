@@ -19,6 +19,7 @@ public class CombatManager : SerializedMonoBehaviour
     [SerializeField] RoomDeck roomDeck;
     [SerializeField] int roomsToDraw;
 
+    [SerializeField] ActionTargetDisplayer actionTargetDisplayer;
     [SerializeField] CombatDisplayer combatDisplayer;
 
     List<Player> playerOrder;
@@ -98,6 +99,7 @@ public class CombatManager : SerializedMonoBehaviour
         foreach (Player player in playerOrder)
         {
             Debug.Log("It is " + player.name + " turn");
+            actionTargetDisplayer.DisplayAction(player);
             yield return GetActionInput();
             Debug.Log("Action Selected: " + actionSelection.ToString());
             yield return GetTargetInput(player);

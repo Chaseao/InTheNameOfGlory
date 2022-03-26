@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
 
-public class ActionTargetDisplayer : MonoBehaviour
+public class ActionTargetDisplayer : SerializedMonoBehaviour
 {
     [SerializeField] Dictionary<Controller.Direction, ActionTargetDisplay> leftDisplays;
     [SerializeField] Dictionary<Controller.Direction, ActionTargetDisplay> rightDisplays;
@@ -12,7 +13,7 @@ public class ActionTargetDisplayer : MonoBehaviour
 
         foreach(var action in player.Actions)
         {
-            leftDisplays[action.Key].Display(action.Value.ActionName);
+            leftDisplays[action.Key].DisplaySelectable(action.Value.ActionName);
         }
     }
 
@@ -22,12 +23,25 @@ public class ActionTargetDisplayer : MonoBehaviour
 
         foreach(var player in players)
         {
-            leftDisplays[player.Key].Display(player.Value.CharacterInformation.CharacterName);
+            leftDisplays[player.Key].DisplaySelectable(player.Value.CharacterInformation.CharacterName);
         }
 
         foreach(var enemy in enemies)
         {
-            rightDisplays[enemy.Key].Display(enemy.Value.CharacterInformation.CharacterName);
+            rightDisplays[enemy.Key].DisplaySelectable(enemy.Value.CharacterInformation.CharacterName);
+        }
+    }
+
+    public void DisplayNonTargets(Dictionary<Controller.Direction, Player> players, Dictionary<Controller.Direction, Enemy> enemies)
+    {
+        foreach (var player in players)
+        {
+            leftDisplays[player.Key].DisplayNotSelectable(player.Value.CharacterInformation.CharacterName);
+        }
+
+        foreach (var enemy in enemies)
+        {
+            rightDisplays[enemy.Key].DisplayNotSelectable(enemy.Value.CharacterInformation.CharacterName);
         }
     }
 
