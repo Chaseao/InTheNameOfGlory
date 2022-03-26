@@ -1,3 +1,4 @@
+using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,7 +14,7 @@ public class CombatManager : SerializedMonoBehaviour
     }
 
     [SerializeField] Dictionary<Controller.Direction, Player> playerCombatants = new Dictionary<Controller.Direction, Player>();
-    [SerializeField] Dictionary<Controller.Direction, Enemy> enemyCombatants = new Dictionary<Controller.Direction, Enemy>();
+    [SerializeField, ReadOnly] Dictionary<Controller.Direction, Enemy> enemyCombatants = new Dictionary<Controller.Direction, Enemy>();
     [SerializeField] List<Enemy> enemyPool;
     [SerializeField] RoomDeck roomDeck;
     [SerializeField] int roomsToDraw;
@@ -35,7 +36,7 @@ public class CombatManager : SerializedMonoBehaviour
 
         DrawRoomsFromDeck();
         
-        StartCoroutine(StartNewCombat());
+        StartCoroutine(StartDungeon());
     }
 
     private void DrawRoomsFromDeck()
@@ -54,6 +55,13 @@ public class CombatManager : SerializedMonoBehaviour
         return roomDrawn;
     }
 
+    private IEnumerator StartDungeon()
+    {
+        while(rooms.Count > 0)
+        {
+            yield return StartNewCombat();
+        }
+    }
 
     private IEnumerator StartNewCombat()
     {
@@ -93,6 +101,7 @@ public class CombatManager : SerializedMonoBehaviour
             Debug.Log("Target Selected: " + targetSelection.name);
 
             player.TakeInput(actionSelection, targetSelection);
+            UpdateCombatants();
         }
         foreach (Enemy enemy in enemyOrder)
         {
@@ -103,6 +112,23 @@ public class CombatManager : SerializedMonoBehaviour
 
             enemy.PerformRandomAction(randomTarget);
         }
+    }
+
+    private void UpdateCombatants()
+    {
+        RemoveDeadEnemies();
+    }
+
+    private void RemoveDeadEnemies()
+    {
+        var deadEnemies = enemyCombatants.Where(enemy => enemy.Value.IsDead).ToArray();
+
+        foreach (var enemy in deadEnemies)
+        {
+            enemyCombatants.Remove(enemy.Key);
+        }
+
+        enemyOrder = new List<Enemy>(enemyCombatants.Values);
     }
 
     private IEnumerator GetActionInput()

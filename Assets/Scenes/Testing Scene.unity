@@ -771,8 +771,6 @@ MonoBehaviour:
     ReferencedUnityObjects:
     - {fileID: 1409729114}
     - {fileID: 716350595}
-    - {fileID: 693893910}
-    - {fileID: 0}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -847,31 +845,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 12
-      Data: 2
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 3
       Data: 0
-    - Name: $v
-      Entry: 10
-      Data: 2
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 3
-      Data: 3
-    - Name: $v
-      Entry: 10
-      Data: 3
-    - Name: 
-      Entry: 8
-      Data: 
     - Name: 
       Entry: 13
       Data: 
@@ -883,8 +857,8 @@ MonoBehaviour:
   - {fileID: 877133385}
   - {fileID: 944922165}
   - {fileID: 1683153729}
-  roomDeck: {fileID: 0}
-  roomsToDraw: 0
+  roomDeck: {fileID: 11400000, guid: 39b36c044d4d374408611f77a9d0f201, type: 2}
+  roomsToDraw: 2
 --- !u!1 &1570196256
 GameObject:
   m_ObjectHideFlags: 0
