@@ -11,7 +11,7 @@ public class CharacterInformation : SerializedScriptableObject
     [SerializeField] Dictionary<Controller.Direction, ActionInformation> characterActions = new Dictionary<Controller.Direction, ActionInformation>();
     [SerializeField] int maxHealth;
     [SerializeField, ReadOnly] int currentHealth;
-    [SerializeField, ReadOnly] int currentCoins = 0;
+    [SerializeField, ReadOnly] int currentGold = 0;
 
     public string CharacterName => characterName;
     public Dictionary<Controller.Direction, ActionInformation> CharacterActions => characterActions;
@@ -30,34 +30,20 @@ public class CharacterInformation : SerializedScriptableObject
 
     public bool IsDead => currentHealth == 0;
 
-    public int CurrentCoins => currentCoins;
+    public int CurrentGold
+    {
+        get
+        {
+            return currentGold;
+        }
+        set
+        {
+            currentGold = Mathf.Max(0, currentGold += value);
+        }
+    }
 
     public void ResetHealth()
     {
         currentHealth = maxHealth;
     }
-}
-
-[System.Serializable]
-public class ActionInformation
-{
-    public enum ActionType
-    {
-        Damage,
-        Heal,
-        Steal,
-        Pass
-    }
-
-    [SerializeField] string actionName;
-    [SerializeField] ActionType actionType;
-    [SerializeField] bool groupAction;
-    [SerializeField] int actionStat;
-    [SerializeField, Range(0, 1)] float failChance;
-
-    public string ActionName => actionName;
-    public ActionType Type => actionType;
-    public bool GroupAction => groupAction;
-    public int ActionStat => actionStat;
-    public float FailChance => failChance;
 }
