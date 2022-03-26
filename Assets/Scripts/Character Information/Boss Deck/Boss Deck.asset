@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7370b398bbbc66a40b90e51d6f908aab, type: 3}
-  m_Name: Slime Boss
+  m_Name: Boss Deck
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -21,4 +21,5 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  rooms: []
+  rooms:
+  - {fileID: 11400000, guid: efb6ebbcb3b1347a2bae39c866b77f1c, type: 2}
