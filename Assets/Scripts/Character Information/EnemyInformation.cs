@@ -13,6 +13,7 @@ public class EnemyInformation : CharacterInformation
     public bool HasBonus => hasBonus;
 
     public ActionInformation EnemyAction => enemyAction;
+    public ActionInformation BonusAction => bonusAction;
     public int InitialGold => initialGold;
 }
 
