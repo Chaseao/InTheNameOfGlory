@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7370b398bbbc66a40b90e51d6f908aab, type: 3}
-  m_Name: Zombie Boss
+  m_Script: {fileID: 11500000, guid: 36ab6cd9a4e384a49926e672a4c2302e, type: 3}
+  m_Name: Zombis B
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -21,4 +21,19 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  rooms: []
+  characterName: 
+  maxHealth: 0
+  hasBonus: 0
+  bonusAction:
+    actionName: 
+    actionType: 0
+    groupAction: 0
+    actionStat: 0
+    failChance: 0
+  enemyAction:
+    actionName: 
+    actionType: 0
+    groupAction: 0
+    actionStat: 0
+    failChance: 0
+  initialGold: 0
