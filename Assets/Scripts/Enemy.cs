@@ -15,19 +15,22 @@ public class Enemy : Combatant
 
     public void PerformRandomAction(Combatant target)
     {
-
-        if(enemyInformation.EnemyAction.Type.Equals(ActionTypes.Heal)){
-            target=this;
-        }
+        
+        ActionInformation enemyActionType;
         if(enemyInformation.HasBonus){
             if(Random.Range(0,2)>=1){
-                PerformAction(target,enemyInformation.EnemyAction);
+               enemyActionType = enemyInformation.EnemyAction;
             }else{
-                PerformAction(target,enemyInformation.BonusAction);
+                enemyActionType = enemyInformation.BonusAction;
             }
         }else{
-            PerformAction(target, enemyInformation.EnemyAction);
+               enemyActionType = enemyInformation.EnemyAction;
         }
+
+        if(enemyActionType.Type.Equals(ActionTypes.Heal)) target =this;
+
+
+        PerformAction(target,enemyActionType);
     }
     protected override void Die()
     {
