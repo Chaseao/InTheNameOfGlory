@@ -5,6 +5,8 @@ using UnityEngine;
 public class Player : Combatant
 {
     [SerializeField] PlayerInformation playerInformation;
+
+    public Dictionary<Controller.Direction, ActionInformation> Actions => playerInformation.CharacterActions;
     public override CharacterInformation CharacterInformation => playerInformation;
 
     public void TakeInput(Controller.Direction input, Combatant target)
