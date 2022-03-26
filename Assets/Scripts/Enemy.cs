@@ -4,7 +4,7 @@ public class Enemy : Combatant
 {
     [SerializeField] EnemyInformation enemyInformation;
 
-    protected override CharacterInformation CharacterInformation => enemyInformation;
+    public override CharacterInformation CharacterInformation => enemyInformation;
 
     public void CreateEnemy(EnemyInformation enemyInformation)
     {

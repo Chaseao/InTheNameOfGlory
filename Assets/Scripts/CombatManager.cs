@@ -19,6 +19,8 @@ public class CombatManager : SerializedMonoBehaviour
     [SerializeField] RoomDeck roomDeck;
     [SerializeField] int roomsToDraw;
 
+    [SerializeField] CombatDisplayer combatDisplayer;
+
     List<Player> playerOrder;
     List<Enemy> enemyOrder;
     List<Room> rooms;
@@ -69,6 +71,7 @@ public class CombatManager : SerializedMonoBehaviour
 
         while(playerCombatants.Count > 0 && enemyCombatants.Count > 0)
         {
+            combatDisplayer.DisplayCombatants(playerCombatants, enemyCombatants);
             yield return StartNewRound();
         }
     }
@@ -102,6 +105,7 @@ public class CombatManager : SerializedMonoBehaviour
 
             player.TakeInput(actionSelection, targetSelection);
             UpdateCombatants();
+            combatDisplayer.DisplayCombatants(playerCombatants, enemyCombatants);
         }
         foreach (Enemy enemy in enemyOrder)
         {
@@ -111,6 +115,7 @@ public class CombatManager : SerializedMonoBehaviour
             Debug.Log("Target Selected: " + randomTarget.name);
 
             enemy.PerformRandomAction(randomTarget);
+            combatDisplayer.DisplayCombatants(playerCombatants, enemyCombatants);
         }
     }
 

@@ -6,7 +6,7 @@ public abstract class Combatant : MonoBehaviour
     [SerializeField, ReadOnly] protected int currentGold;
     [SerializeField, ReadOnly] int currentHealth;
 
-    protected abstract CharacterInformation CharacterInformation { get; }
+    public abstract CharacterInformation CharacterInformation { get; }
 
     public int CurrentGold
     {

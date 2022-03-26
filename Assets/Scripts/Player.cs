@@ -5,13 +5,18 @@ using UnityEngine;
 public class Player : Combatant
 {
     [SerializeField] PlayerInformation playerInformation;
-    protected override CharacterInformation CharacterInformation => playerInformation;
+    public override CharacterInformation CharacterInformation => playerInformation;
 
     public void TakeInput(Controller.Direction input, Combatant target)
     {
         ActionInformation action = playerInformation.CharacterActions[input];
 
         PerformAction(target, action);
+
+        if (target.IsDead)
+        {
+            GainGold(target.CurrentGold);
+        }
     }
 
     public bool IsValidTarget(Controller.Direction input, Combatant target)
