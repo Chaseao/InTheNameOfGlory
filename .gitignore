@@ -12,8 +12,6 @@
 
 #ignore Assest metafiles
 *Assets/Plugins/
-*.[meta]
-*Packages/
 
 *ProjectSettings/
 

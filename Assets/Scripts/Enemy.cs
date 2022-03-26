@@ -4,7 +4,6 @@ using Microsoft;
 public class Enemy : Combatant
 {
     [SerializeField] EnemyInformation enemyInformation;
-    private bool TwoActions = false;
 
     public override CharacterInformation CharacterInformation => enemyInformation;
 
@@ -20,14 +19,14 @@ public class Enemy : Combatant
         if(enemyInformation.enemyAction.Type.equals(ActionTypes.Heal)){
             target=this;
         }
-        if(TwoActions){
+        if(enemyInformation.HasBonus){
             if(Random.Range(0,2)>=1){
                 PerformAction(target,enemyInformation.EnemyAction1);
             }else{
-                PerformAction(target,enemyInformation.EnemyAction2);
+                PerformAction(target,enemyInformation.BonusAction);
             }
         }else{
-            PerformAction(target, enemyInformation.EnemyAction1);
+            PerformAction(target, enemyInformation.EnemyAction);
         }
     }
     protected override void Die()
