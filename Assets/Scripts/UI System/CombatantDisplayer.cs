@@ -29,8 +29,8 @@ public class CombatantDisplayer : MonoBehaviour
 
 public class ActionTargetDisplayer : MonoBehaviour
 {
-    [SerializeField] Dictionary<Controller.Direction, DisplayGroup> leftDisplays;
-    [SerializeField] Dictionary<Controller.Direction, DisplayGroup> rightDisplays;
+    [SerializeField] Dictionary<Controller.Direction, ActionTargetDisplay> leftDisplays;
+    [SerializeField] Dictionary<Controller.Direction, ActionTargetDisplay> rightDisplays;
 
     public void DisplayAction(Player player)
     {
@@ -42,9 +42,12 @@ public class ActionTargetDisplayer : MonoBehaviour
         }
     }
 
-    public void DisplayTarget()
+    public void DisplayTargets(Dictionary<Controller.Direction, Player> players, Dictionary<Controller.Direction, Enemy> enemies)
     {
         Clear();
+
+        foreach(Player player in )
+        
     }
 
     public void Clear()
@@ -60,22 +63,22 @@ public class ActionTargetDisplayer : MonoBehaviour
         }
     }
 
-    [System.Serializable]
-    class DisplayGroup
+}
+
+class ActionTargetDisplay : MonoBehaviour
+{
+    [SerializeField] Image displayIcon;
+    [SerializeField] TextMeshProUGUI displayText;
+
+    public void Display(string text)
     {
-        [SerializeField] Image displayIcon;
-        [SerializeField] TextMeshProUGUI displayText;
+        displayIcon.enabled = true;
+        displayText.text = text;
+    }
 
-        public void Display(string text)
-        {
-            displayIcon.enabled = true;
-            displayText.text = text;
-        }
-
-        public void Clear()
-        {
-            displayIcon.enabled = false;
-            displayText.text = "";
-        }
+    public void Clear()
+    {
+        displayIcon.enabled = false;
+        displayText.text = "";
     }
 }
