@@ -102,6 +102,8 @@ public class CombatManager : SerializedMonoBehaviour
             actionTargetDisplayer.DisplayAction(player);
             yield return GetActionInput();
             Debug.Log("Action Selected: " + actionSelection.ToString());
+
+            DisplayTargets(player);
             yield return GetTargetInput(player);
             Debug.Log("Target Selected: " + targetSelection.name);
 
@@ -119,6 +121,22 @@ public class CombatManager : SerializedMonoBehaviour
             enemy.PerformRandomAction(randomTarget);
             combatDisplayer.DisplayCombatants(playerCombatants, enemyCombatants);
         }
+    }
+
+    private void DisplayTargets(Player player)
+    {
+        actionTargetDisplayer.Clear();
+
+        var validPlayerTargets = playerCombatants
+            .Where(combatant => player.IsValidTarget(actionSelection, combatant.Value))
+            .ToDictionary(combatant => combatant.Key, combatant => combatant.Value);
+
+        var validEnemyTargets = enemyCombatants
+            .Where(combatant => player.IsValidTarget(actionSelection, combatant.Value))
+            .ToDictionary(combatant => combatant.Key, combatant => combatant.Value);
+
+        actionTargetDisplayer.DisplayNonTargets(playerCombatants, enemyCombatants);
+        actionTargetDisplayer.DisplayTargets(validPlayerTargets, validEnemyTargets);
     }
 
     private void UpdateCombatants()

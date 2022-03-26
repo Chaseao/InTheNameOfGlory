@@ -19,8 +19,6 @@ public class ActionTargetDisplayer : SerializedMonoBehaviour
 
     public void DisplayTargets(Dictionary<Controller.Direction, Player> players, Dictionary<Controller.Direction, Enemy> enemies)
     {
-        Clear();
-
         foreach(var player in players)
         {
             leftDisplays[player.Key].DisplaySelectable(player.Value.CharacterInformation.CharacterName);

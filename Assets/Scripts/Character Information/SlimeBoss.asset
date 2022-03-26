@@ -23,10 +23,17 @@ MonoBehaviour:
     SerializationNodes: []
   characterName: Boss Baby
   maxHealth: 50
+  hasBonus: 1
+  bonusAction:
+    actionName: Heal
+    actionType: 1
+    groupAction: 0
+    actionStat: 5
+    failChance: 0
   enemyAction:
-    actionName: 
+    actionName: Die
     actionType: 0
     groupAction: 0
-    actionStat: 0
+    actionStat: 5
     failChance: 0
   initialGold: 75
