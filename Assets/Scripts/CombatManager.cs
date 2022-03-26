@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Sirenix.OdinInspector;
-using System;
 
 public class CombatManager : SerializedMonoBehaviour
 {
@@ -15,9 +14,13 @@ public class CombatManager : SerializedMonoBehaviour
 
     [SerializeField] Dictionary<Controller.Direction, Player> playerCombatants = new Dictionary<Controller.Direction, Player>();
     [SerializeField] Dictionary<Controller.Direction, Enemy> enemyCombatants = new Dictionary<Controller.Direction, Enemy>();
+    [SerializeField] List<Enemy> enemyPool;
+    [SerializeField] RoomDeck roomDeck;
+    [SerializeField] int roomsToDraw;
 
     List<Player> playerOrder;
     List<Enemy> enemyOrder;
+    List<Room> rooms;
 
     Controller.Direction lastInputDirection;
     InputTypes lastInputType = InputTypes.none;
@@ -29,17 +32,54 @@ public class CombatManager : SerializedMonoBehaviour
     {
         Debug.Log("Starting the game...");
         playerOrder = new List<Player>(playerCombatants.Values);
-        enemyOrder = new List<Enemy>(enemyCombatants.Values);
+
+        DrawRoomsFromDeck();
         
         StartCoroutine(StartNewCombat());
     }
-    
+
+    private void DrawRoomsFromDeck()
+    {
+        rooms = new List<Room>(roomDeck.Rooms);
+        while(rooms.Count > roomsToDraw)
+        {
+            DrawRandomRoom();
+        }
+    }
+
+    private Room DrawRandomRoom()
+    {
+        Room roomDrawn = rooms[Random.Range(0, rooms.Count)];
+        rooms.Remove(roomDrawn);
+        return roomDrawn;
+    }
+
+
     private IEnumerator StartNewCombat()
     {
+        InitializeRoom();
+
         while(playerCombatants.Count > 0 && enemyCombatants.Count > 0)
         {
             yield return StartNewRound();
         }
+    }
+
+    private void InitializeRoom()
+    {
+        enemyCombatants = new Dictionary<Controller.Direction, Enemy>();
+        Room room = DrawRandomRoom();
+
+        int counter = 0;
+
+        foreach(var enemyInfo in room.Enemies)
+        {
+            enemyPool[counter].CreateEnemy(enemyInfo.Value);
+            enemyCombatants.Add(enemyInfo.Key, enemyPool[counter]);
+            counter++;
+        }
+
+        enemyOrder = new List<Enemy>(enemyCombatants.Values);
     }
 
     private IEnumerator StartNewRound()
@@ -49,7 +89,7 @@ public class CombatManager : SerializedMonoBehaviour
             Debug.Log("It is " + player.name + " turn");
             yield return GetActionInput();
             Debug.Log("Action Selected: " + actionSelection.ToString());
-            yield return GetTargetInput();
+            yield return GetTargetInput(player);
             Debug.Log("Target Selected: " + targetSelection.name);
 
             player.TakeInput(actionSelection, targetSelection);
@@ -58,7 +98,7 @@ public class CombatManager : SerializedMonoBehaviour
         {
             Debug.Log("It is " + enemy.name + " turn");
 
-            Player randomTarget = playerOrder[UnityEngine.Random.Range(0, playerOrder.Count - 1)];
+            Player randomTarget = playerOrder[Random.Range(0, playerOrder.Count)];
             Debug.Log("Target Selected: " + randomTarget.name);
 
             enemy.PerformRandomAction(randomTarget);
@@ -76,7 +116,7 @@ public class CombatManager : SerializedMonoBehaviour
         Controller.leftInput -= GetLeftInput;
     }
 
-    private IEnumerator GetTargetInput()
+    private IEnumerator GetTargetInput(Player player)
     {
         bool inputWasValid = false;
         
@@ -91,12 +131,14 @@ public class CombatManager : SerializedMonoBehaviour
             if (lastInputType.Equals(InputTypes.left) && playerCombatants.ContainsKey(lastInputDirection))
             {
                 targetSelection = playerCombatants[lastInputDirection];
-                inputWasValid = true;
+                
+                inputWasValid = player.IsValidTarget(actionSelection, targetSelection);
             }
             else if (lastInputType.Equals(InputTypes.right) && enemyCombatants.ContainsKey(lastInputDirection))
             {
                 targetSelection = enemyCombatants[lastInputDirection];
-                inputWasValid = true;
+
+                inputWasValid = player.IsValidTarget(actionSelection, targetSelection);
             }
         }
 

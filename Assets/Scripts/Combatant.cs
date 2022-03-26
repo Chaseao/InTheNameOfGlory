@@ -1,12 +1,48 @@
-﻿using UnityEngine;
+﻿using Sirenix.OdinInspector;
+using UnityEngine;
 
 public abstract class Combatant : MonoBehaviour
 {
-    [SerializeField] protected CharacterInformation characterInformation;
+    [SerializeField, ReadOnly] protected int currentGold;
+    [SerializeField, ReadOnly] int currentHealth;
+
+    protected abstract CharacterInformation CharacterInformation { get; }
+
+    public int CurrentGold
+    {
+        get
+        {
+            return currentGold;
+        }
+        set
+        {
+            currentGold = Mathf.Max(0, value);
+        }
+    }
+    public int CurrentHealth
+    {
+        get
+        {
+            return currentHealth;
+        }
+        set
+        {
+            currentHealth = Mathf.Max(0, value);
+            currentHealth = Mathf.Min(currentHealth, CharacterInformation.MaxHealth);
+        }
+    }
+
+    public bool IsDead => currentHealth <= 0;
 
     private void OnEnable()
     {
-        characterInformation.ResetHealth();
+        ResetCharacter();
+    }
+
+    public void ResetCharacter()
+    {
+        ResetHealth();
+        ResetGold();
     }
 
     protected void PerformAction(Combatant target, ActionInformation action)
@@ -29,9 +65,9 @@ public abstract class Combatant : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        characterInformation.CurrentHealth -= damage;
+        CurrentHealth -= damage;
 
-        if (characterInformation.IsDead)
+        if (IsDead)
         {
             Die();
         }
@@ -39,28 +75,36 @@ public abstract class Combatant : MonoBehaviour
 
     public void HealDamage(int healAmmount)
     {
-        characterInformation.CurrentHealth += healAmmount;
+        CurrentHealth += healAmmount;
     }
+
+    public void ResetHealth()
+    {
+        currentHealth = CharacterInformation.MaxHealth;
+    }
+
+    protected abstract void Die();
 
     public void GainGold(int amount)
     {
-        characterInformation.CurrentGold += amount;
+        CurrentGold += amount;
     }
 
     public int LoseGold(int amount)
     {
         int goldStolen = amount;
 
-        if (amount > characterInformation.CurrentGold)
+        if (amount > CurrentGold)
         {
-            goldStolen = characterInformation.CurrentGold;
+            goldStolen = CurrentGold;
         }
 
-        characterInformation.CurrentGold -= amount;
+        CurrentGold -= amount;
 
         return goldStolen;
     }
 
+    protected abstract void ResetGold();
 
-    protected abstract void Die();
+
 }

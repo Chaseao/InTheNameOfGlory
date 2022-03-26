@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36ab6cd9a4e384a49926e672a4c2302e, type: 3}
-  m_Name: Zombie
+  m_Script: {fileID: 11500000, guid: 2f6427ee35dd5944994d3507b1f4242d, type: 3}
+  m_Name: One Zombie
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -20,13 +20,7 @@ MonoBehaviour:
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes: []
-  characterName: Zombie
-  maxHealth: 4
-  enemyAction:
-    actionName: Claw
-    actionType: 0
-    groupAction: 0
-    actionStat: 2
-    failChance: 0
-  initialGold: 3
+    SerializationNodes:
+    - Name: enemies
+      Entry: 6
+      Data: 
