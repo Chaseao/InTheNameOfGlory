@@ -21,8 +21,8 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  characterName: 
-  characterAttacks:
+  characterName: Mage
+  characterActions:
   - actionName: Fireball
     actionType: 0
     groupAction: 0
@@ -31,14 +31,14 @@ MonoBehaviour:
   - actionName: Mind over Matter
     actionType: 1
     groupAction: 0
-    actionStat: 2
-    failChance: 0.05
-  - actionName: Let me borrow that...
+    actionStat: 0
+    failChance: 0.1
+  - actionName: Let me see that...
     actionType: 2
     groupAction: 0
-    actionStat: 1
+    actionStat: 0
     failChance: 0.2
-  - actionName: Meditate
+  - actionName: Focus
     actionType: 3
     groupAction: 0
     actionStat: 0

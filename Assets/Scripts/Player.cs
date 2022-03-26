@@ -2,17 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : Combatant
 {
-    // Start is called before the first frame update
-    void Start()
+    public bool IsDead => characterInformation.IsDead;
+
+    public void PerformAction(Controller.Direction input, Combatant target)
     {
-        
+        ActionInformation action = characterInformation.CharacterActions[input];
     }
 
-    // Update is called once per frame
-    void Update()
+    protected override void Die()
     {
-        
+        Debug.Log(characterInformation.CharacterName + " died");
     }
 }

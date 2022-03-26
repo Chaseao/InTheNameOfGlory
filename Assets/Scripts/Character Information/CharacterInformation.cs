@@ -8,13 +8,13 @@ using Sirenix.Serialization;
 public class CharacterInformation : SerializedScriptableObject
 {
     [SerializeField] string characterName;
-    [SerializeField] List<ActionInformation> characterAttacks = new List<ActionInformation>();
+    [SerializeField] Dictionary<Controller.Direction, ActionInformation> characterActions = new Dictionary<Controller.Direction, ActionInformation>();
     [SerializeField] int maxHealth;
     [SerializeField, ReadOnly] int currentHealth;
     [SerializeField, ReadOnly] int currentCoins = 0;
 
     public string CharacterName => characterName;
-    public List<ActionInformation> CharacterAttacks => new List<ActionInformation>(characterAttacks);
+    public Dictionary<Controller.Direction, ActionInformation> CharacterActions => characterActions;
 
     public int CurrentHealth 
     { 
