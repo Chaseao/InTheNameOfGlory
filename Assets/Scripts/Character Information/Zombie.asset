@@ -23,6 +23,13 @@ MonoBehaviour:
     SerializationNodes: []
   characterName: Zombie
   maxHealth: 4
+  hasBonus: 0
+  bonusAction:
+    actionName: 
+    actionType: 1
+    groupAction: 0
+    actionStat: 0
+    failChance: 0
   enemyAction:
     actionName: Claw
     actionType: 0
