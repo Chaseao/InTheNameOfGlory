@@ -11,7 +11,9 @@
 /[Uu]ser[Ss]ettings/
 
 #ignore Assest metafiles
-[Aa]ssets/**/*.meta
+Plugins/
+*.[meta]
+
 
 # MemoryCaptures can get excessive in size.
 # They also could contain extremely sensitive data
