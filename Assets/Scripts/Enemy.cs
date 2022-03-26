@@ -16,12 +16,12 @@ public class Enemy : Combatant
     public void PerformRandomAction(Combatant target)
     {
 
-        if(enemyInformation.enemyAction.Type.equals(ActionTypes.Heal)){
+        if(enemyInformation.EnemyAction.Type.Equals(ActionTypes.Heal)){
             target=this;
         }
         if(enemyInformation.HasBonus){
             if(Random.Range(0,2)>=1){
-                PerformAction(target,enemyInformation.EnemyAction1);
+                PerformAction(target,enemyInformation.EnemyAction);
             }else{
                 PerformAction(target,enemyInformation.BonusAction);
             }
