@@ -42,7 +42,27 @@ public class Controller : MonoBehaviour
 
     private Direction DirectionConverter(Vector2 directionToConvert)
     {
-        Direction convertedDirection = Direction.Up;
+        Direction convertedDirection;
+
+        float x = directionToConvert.x;
+        float y = directionToConvert.y;
+
+        if(x > 0)
+        {
+            convertedDirection = Direction.Right;
+        }
+        else if (x < 0)
+        {
+            convertedDirection = Direction.Left;
+        }
+        else if (y > 0)
+        {
+            convertedDirection = Direction.Up;
+        }
+        else
+        {
+            convertedDirection = Direction.Down;
+        }
 
         return convertedDirection;
     }
