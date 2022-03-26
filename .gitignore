@@ -11,7 +11,7 @@
 /[Uu]ser[Ss]ettings/
 
 #ignore Assest metafiles
-Assets/Plugins/
+*Assets/Plugins/
 *.[meta]
 
 # MemoryCaptures can get excessive in size.
