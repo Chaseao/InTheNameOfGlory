@@ -14,9 +14,9 @@ public class Controller : MonoBehaviour
     }
 
     public delegate void LeftInput(Direction direction);
-    public event LeftInput leftInput;
+    public static event LeftInput leftInput;
     public delegate void RightInput(Direction direction);
-    public event RightInput rightInput;
+    public static event RightInput rightInput;
 
     public void OnLeftInput(InputAction.CallbackContext context)
     {

@@ -20,29 +20,154 @@ MonoBehaviour:
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes: []
+    SerializationNodes:
+    - Name: characterActions
+      Entry: 7
+      Data: 0|System.Collections.Generic.Dictionary`2[[Controller+Direction, Assembly-CSharp],[ActionInformation,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 1|System.Collections.Generic.EnumEqualityComparer`1[[Controller+Direction,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 4
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 0
+    - Name: $v
+      Entry: 7
+      Data: 2|ActionInformation, Assembly-CSharp
+    - Name: actionName
+      Entry: 1
+      Data: Fireball
+    - Name: actionType
+      Entry: 3
+      Data: 0
+    - Name: groupAction
+      Entry: 5
+      Data: false
+    - Name: actionStat
+      Entry: 3
+      Data: 3
+    - Name: failChance
+      Entry: 4
+      Data: 0.2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 1
+    - Name: $v
+      Entry: 7
+      Data: 3|ActionInformation, Assembly-CSharp
+    - Name: actionName
+      Entry: 1
+      Data: Mind over Matter
+    - Name: actionType
+      Entry: 3
+      Data: 1
+    - Name: groupAction
+      Entry: 5
+      Data: false
+    - Name: actionStat
+      Entry: 3
+      Data: 2
+    - Name: failChance
+      Entry: 4
+      Data: 0.1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 2
+    - Name: $v
+      Entry: 7
+      Data: 4|ActionInformation, Assembly-CSharp
+    - Name: actionName
+      Entry: 1
+      Data: Let me see that...
+    - Name: actionType
+      Entry: 3
+      Data: 2
+    - Name: groupAction
+      Entry: 5
+      Data: false
+    - Name: actionStat
+      Entry: 3
+      Data: 1
+    - Name: failChance
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 3
+    - Name: $v
+      Entry: 7
+      Data: 5|ActionInformation, Assembly-CSharp
+    - Name: actionName
+      Entry: 1
+      Data: Meditate
+    - Name: actionType
+      Entry: 3
+      Data: 3
+    - Name: groupAction
+      Entry: 5
+      Data: false
+    - Name: actionStat
+      Entry: 3
+      Data: 0
+    - Name: failChance
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
   characterName: Mage
-  characterActions:
-  - actionName: Fireball
-    actionType: 0
-    groupAction: 0
-    actionStat: 3
-    failChance: 0.1
-  - actionName: Mind over Matter
-    actionType: 1
-    groupAction: 0
-    actionStat: 0
-    failChance: 0.1
-  - actionName: Let me see that...
-    actionType: 2
-    groupAction: 0
-    actionStat: 0
-    failChance: 0.2
-  - actionName: Focus
-    actionType: 3
-    groupAction: 0
-    actionStat: 0
-    failChance: 0
   maxHealth: 10
   currentHealth: 0
-  currentCoins: 0
+  currentGold: 0
