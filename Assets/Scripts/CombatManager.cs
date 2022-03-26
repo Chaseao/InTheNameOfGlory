@@ -16,7 +16,8 @@ public class CombatManager : SerializedMonoBehaviour
     [SerializeField] Dictionary<Controller.Direction, Player> playerCombatants = new Dictionary<Controller.Direction, Player>();
     [SerializeField, ReadOnly] Dictionary<Controller.Direction, Enemy> enemyCombatants = new Dictionary<Controller.Direction, Enemy>();
     [SerializeField] List<Enemy> enemyPool;
-    [SerializeField] RoomDeck roomDeck;
+    [SerializeField] RoomDeck minionDeck;
+    [SerializeField] RoomDeck bossDeck;
     [SerializeField] int roomsToDraw;
 
     [SerializeField] ActionTargetDisplayer actionTargetDisplayer;
@@ -25,6 +26,7 @@ public class CombatManager : SerializedMonoBehaviour
     List<Player> playerOrder;
     List<Enemy> enemyOrder;
     List<Room> rooms;
+    Room bossRoom;
 
     Controller.Direction lastInputDirection;
     InputTypes lastInputType = InputTypes.none;
@@ -37,18 +39,19 @@ public class CombatManager : SerializedMonoBehaviour
         Debug.Log("Starting the game...");
         playerOrder = new List<Player>(playerCombatants.Values);
 
-        DrawRoomsFromDeck();
+        DrawRoomsFromDecks();
         
         StartCoroutine(StartDungeon());
     }
 
-    private void DrawRoomsFromDeck()
+    private void DrawRoomsFromDecks()
     {
-        rooms = new List<Room>(roomDeck.Rooms);
+        rooms = new List<Room>(minionDeck.Rooms);
         while(rooms.Count > roomsToDraw)
         {
             DrawRandomRoom();
         }
+        bossRoom = DrawRandomBossRoom();
     }
 
     private Room DrawRandomRoom()
@@ -58,12 +61,20 @@ public class CombatManager : SerializedMonoBehaviour
         return roomDrawn;
     }
 
+    private Room DrawRandomBossRoom()
+    {
+        Room roomDrawn = bossDeck.Rooms[Random.Range(0, bossDeck.Rooms.Count)];
+        return roomDrawn;
+    }
+
     private IEnumerator StartDungeon()
     {
         while(rooms.Count > 0)
         {
             yield return StartNewCombat();
         }
+        rooms.Add(bossRoom);
+        yield return StartNewCombat();
     }
 
     private IEnumerator StartNewCombat()

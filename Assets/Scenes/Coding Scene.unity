@@ -2484,7 +2484,8 @@ MonoBehaviour:
   - {fileID: 877133385}
   - {fileID: 944922165}
   - {fileID: 1683153729}
-  roomDeck: {fileID: 11400000, guid: 39b36c044d4d374408611f77a9d0f201, type: 2}
+  minionDeck: {fileID: 11400000, guid: 39b36c044d4d374408611f77a9d0f201, type: 2}
+  bossDeck: {fileID: 11400000, guid: 3628693d30304407d891abb70c5f7d49, type: 2}
   roomsToDraw: 2
   actionTargetDisplayer: {fileID: 961202562}
   combatDisplayer: {fileID: 2144419053}
