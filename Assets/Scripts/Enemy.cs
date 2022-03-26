@@ -1,8 +1,10 @@
 ﻿using UnityEngine;
+using Microsoft;
 
 public class Enemy : Combatant
 {
     [SerializeField] EnemyInformation enemyInformation;
+    private bool TwoActions = false;
 
     public override CharacterInformation CharacterInformation => enemyInformation;
 
@@ -14,9 +16,20 @@ public class Enemy : Combatant
 
     public void PerformRandomAction(Combatant target)
     {
-        PerformAction(target, enemyInformation.EnemyAction);
-    }
 
+        if(enemyInformation.enemyAction.Type.equals(ActionTypes.Heal)){
+            target=this;
+        }
+        if(TwoActions){
+            if(Random.Range(0,2)>=1){
+                PerformAction(target,enemyInformation.EnemyAction1);
+            }else{
+                PerformAction(target,enemyInformation.EnemyAction2);
+            }
+        }else{
+            PerformAction(target, enemyInformation.EnemyAction1);
+        }
+    }
     protected override void Die()
     {
         Debug.Log(enemyInformation.CharacterName + " died");
