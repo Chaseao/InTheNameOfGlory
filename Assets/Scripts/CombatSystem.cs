@@ -12,13 +12,22 @@ public class CombatSystem : SerializedMonoBehaviour
     [SerializeField] RoundManager roundManager;
     [SerializeField] EndScreenController endScreen;
 
+    CombatInformation initialInformation;
     CombatInformation combatInformation;
     List<Room> rooms;
+
+    public void RestartGame()
+    {
+        StartGame(initialInformation);
+    }
 
     public void StartGame(CombatInformation combatInformation)
     {
         Debug.Log("Starting the game...");
-        this.combatInformation = combatInformation;
+
+        initialInformation = combatInformation;
+
+        this.combatInformation = new CombatInformation(combatInformation);
 
         foreach (Player player in combatInformation.PlayerOrder)
         {
@@ -27,7 +36,7 @@ public class CombatSystem : SerializedMonoBehaviour
 
         DrawRoomsFromDecks();
 
-        StartCoroutine(StartDungeon(new List<Player>(combatInformation.PlayerOrder)));
+        StartCoroutine(StartDungeon(new List<Player>(initialInformation.PlayerOrder)));
     }
 
     private void DrawRoomsFromDecks()

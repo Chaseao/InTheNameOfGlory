@@ -23,6 +23,14 @@ public class CombatInformation
         this.enemyOrder = new List<Enemy>(enemyCombatants.Values);
     }
 
+    public CombatInformation(CombatInformation combatInformation)
+    {
+        playerCombatants = new Dictionary<Controller.InputTypes, Player>(combatInformation.PlayerCombatants);
+        playerOrder = new List<Player>(playerCombatants.Values);
+        enemyCombatants = new Dictionary<Controller.InputTypes, Enemy>(combatInformation.EnemyCombatants);
+        enemyOrder = new List<Enemy>(enemyCombatants.Values);
+    }
+
     public void SwitchPlayers(Dictionary<Controller.InputTypes, Player> playerCombatants)
     {
         this.playerCombatants = playerCombatants;

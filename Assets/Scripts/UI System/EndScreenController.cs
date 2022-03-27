@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,8 @@ public class EndScreenController : MonoBehaviour
     [SerializeField] Image selectIcon;
     [SerializeField] WinnerDisplay winnerDisplay;
     [SerializeField] GameObject resultsPage;
+    [SerializeField] IntroScreen introScreen;
+    [SerializeField] CombatSystem combatSystem;
 
     List<Player> playersInGame;
 
@@ -64,9 +67,21 @@ public class EndScreenController : MonoBehaviour
 
         resultsPage.SetActive(false);
 
-        winnerDisplay.Display(playersInGame.Last());
+        if (PlayersAllTied())
+        {
+            winnerDisplay.Display("None of You!");
+        }
+        else
+        {
+            winnerDisplay.Display(playersInGame.Last());
+        }
 
         Controller.rightInput += HandleWinnerMenu;
+    }
+
+    private bool PlayersAllTied()
+    {
+        return playersInGame.First().CurrentGold == playersInGame.Last().CurrentGold;
     }
 
     private void HandleWinnerMenu(Controller.InputTypes input)
@@ -74,17 +89,19 @@ public class EndScreenController : MonoBehaviour
         switch (input)
         {
             case Controller.InputTypes.Up:
+                Controller.rightInput -= HandleWinnerMenu;
+                introScreen.OpenTitlePage();
+                gameObject.SetActive(false);
                 break;
             case Controller.InputTypes.Left:
                 break;
             case Controller.InputTypes.Right:
-                Controller.rightInput -= HandleWinnerMenu;
-                FindObjectOfType<IntroScreen>().OpenTitlePage();
-                gameObject.SetActive(false);
+                Application.Quit();
                 break;
             case Controller.InputTypes.Down:
                 Controller.rightInput -= HandleWinnerMenu;
-                Application.Quit();
+                combatSystem.RestartGame();
+                gameObject.SetActive(false);
                 break;
         }
     }

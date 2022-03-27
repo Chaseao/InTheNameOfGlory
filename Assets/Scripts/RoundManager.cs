@@ -32,12 +32,13 @@ public class RoundManager : SerializedMonoBehaviour
 
         foreach (Player player in this.combatInformation.PlayerOrder)
         {
-            if (!player.IsDead && this.combatInformation.EnemyCombatants.Count > 0) {
+            if (this.combatInformation.EnemyCombatants.Count > 0) {
                 yield return HandlePlayerTurn(player);
             }
         }
         foreach (Enemy enemy in this.combatInformation.EnemyOrder)
         {
+            if(this.combatInformation.PlayerCombatants.Count > 0)
             HandleEnemyTurn(enemy);
         }
     }

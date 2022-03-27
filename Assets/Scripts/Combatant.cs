@@ -61,6 +61,11 @@ public abstract class Combatant : MonoBehaviour
             case ActionTypes.Pass:
                 break;
         }
+
+        if (target.IsDead)
+        {
+            GainGold(target.LoseGold(target.CurrentGold));
+        }
     }
 
     public void TakeDamage(int damage)

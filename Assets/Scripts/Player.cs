@@ -24,11 +24,6 @@ public class Player : Combatant
         ActionInformation action = playerInformation.CharacterActions[input];
 
         PerformAction(target, action);
-
-        if (target.IsDead)
-        {
-            GainGold(target.CurrentGold);
-        }
     }
 
     public bool IsValidTarget(Controller.InputTypes input, Combatant target)

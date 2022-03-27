@@ -12,6 +12,12 @@ public class WinnerDisplay : MonoBehaviour
         winner.text = player.CharacterInformation.CharacterName;
     }
 
+    public void Display(string player)
+    {
+        background.SetActive(true);
+        winner.text = player;
+    }
+
     public void Clear()
     {
         background.SetActive(false);
