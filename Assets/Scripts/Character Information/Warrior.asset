@@ -23,11 +23,11 @@ MonoBehaviour:
     SerializationNodes:
     - Name: characterActions
       Entry: 7
-      Data: 0|System.Collections.Generic.Dictionary`2[[Controller+Direction, Assembly-CSharp],[ActionInformation,
+      Data: 0|System.Collections.Generic.Dictionary`2[[Controller+Button, Assembly-CSharp],[ActionInformation,
         Assembly-CSharp]], mscorlib
     - Name: comparer
       Entry: 7
-      Data: 1|System.Collections.Generic.EnumEqualityComparer`1[[Controller+Direction,
+      Data: 1|System.Collections.Generic.EnumEqualityComparer`1[[Controller+Button,
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
@@ -167,5 +167,6 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-  characterName: Ben
+  characterName: Merrida The Bold
   maxHealth: 10
+  animation: {fileID: 9100000, guid: 2c6513af2b441ff43bac301d9f0ae443, type: 2}

@@ -22,4 +22,4 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   rooms:
-  - {fileID: 11400000, guid: efb6ebbcb3b1347a2bae39c866b77f1c, type: 2}
+  - {fileID: 11400000, guid: 1191b1020599e70458ae2d43636d00bc, type: 2}

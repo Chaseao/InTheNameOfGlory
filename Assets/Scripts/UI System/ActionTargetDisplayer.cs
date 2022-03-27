@@ -4,8 +4,8 @@ using Sirenix.OdinInspector;
 
 public class ActionTargetDisplayer : SerializedMonoBehaviour
 {
-    [SerializeField] Dictionary<Controller.Direction, ActionTargetDisplay> leftDisplays;
-    [SerializeField] Dictionary<Controller.Direction, ActionTargetDisplay> rightDisplays;
+    [SerializeField] Dictionary<Controller.Button, ActionTargetDisplay> leftDisplays;
+    [SerializeField] Dictionary<Controller.Button, ActionTargetDisplay> rightDisplays;
 
     public void DisplayAction(Player player)
     {
@@ -17,7 +17,7 @@ public class ActionTargetDisplayer : SerializedMonoBehaviour
         }
     }
 
-    public void DisplayTargets(Dictionary<Controller.Direction, Player> players, Dictionary<Controller.Direction, Enemy> enemies)
+    public void DisplayTargets(Dictionary<Controller.Button, Player> players, Dictionary<Controller.Button, Enemy> enemies)
     {
         foreach(var player in players)
         {
@@ -30,7 +30,7 @@ public class ActionTargetDisplayer : SerializedMonoBehaviour
         }
     }
 
-    public void DisplayNonTargets(Dictionary<Controller.Direction, Player> players, Dictionary<Controller.Direction, Enemy> enemies)
+    public void DisplayNonTargets(Dictionary<Controller.Button, Player> players, Dictionary<Controller.Button, Enemy> enemies)
     {
         foreach (var player in players)
         {

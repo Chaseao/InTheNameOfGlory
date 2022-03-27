@@ -5,7 +5,7 @@ using Sirenix.OdinInspector;
 [CreateAssetMenu(fileName = "New Room", menuName = "Room")]
 public class Room : SerializedScriptableObject
 {
-    [SerializeField] Dictionary<Controller.Direction, EnemyInformation> enemies = new Dictionary<Controller.Direction, EnemyInformation>();
+    [SerializeField] Dictionary<Controller.Button, EnemyInformation> enemies = new Dictionary<Controller.Button, EnemyInformation>();
 
-    public Dictionary<Controller.Direction, EnemyInformation> Enemies => enemies;
+    public Dictionary<Controller.Button, EnemyInformation> Enemies => enemies;
  }

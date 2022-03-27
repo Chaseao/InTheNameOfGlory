@@ -13,8 +13,8 @@ public class CombatManager : SerializedMonoBehaviour
         right
     }
 
-    [SerializeField] Dictionary<Controller.Direction, Player> playerCombatants = new Dictionary<Controller.Direction, Player>();
-    [SerializeField, ReadOnly] Dictionary<Controller.Direction, Enemy> enemyCombatants = new Dictionary<Controller.Direction, Enemy>();
+    [SerializeField] Dictionary<Controller.Button, Player> playerCombatants = new Dictionary<Controller.Button, Player>();
+    [SerializeField, ReadOnly] Dictionary<Controller.Button, Enemy> enemyCombatants = new Dictionary<Controller.Button, Enemy>();
     [SerializeField] List<Enemy> enemyPool;
     [SerializeField] RoomDeck minionDeck;
     [SerializeField] RoomDeck bossDeck;
@@ -22,25 +22,36 @@ public class CombatManager : SerializedMonoBehaviour
 
     [SerializeField] ActionTargetDisplayer actionTargetDisplayer;
     [SerializeField] CombatDisplayer combatDisplayer;
+    [SerializeField] EndScreenController endScreen;
 
     List<Player> playerOrder;
     List<Enemy> enemyOrder;
     List<Room> rooms;
     Room bossRoom;
 
-    Controller.Direction lastInputDirection;
+    Controller.Button lastInputDirection;
     InputTypes lastInputType = InputTypes.none;
 
     Combatant targetSelection;
-    Controller.Direction actionSelection;
+    Controller.Button actionSelection;
 
     private void Start()
+    {
+        StartGame();
+    }
+
+    public void StartGame()
     {
         Debug.Log("Starting the game...");
         playerOrder = new List<Player>(playerCombatants.Values);
 
+        foreach(Player player in playerOrder)
+        {
+            player.ResetCharacter();
+        }
+
         DrawRoomsFromDecks();
-        
+
         StartCoroutine(StartDungeon());
     }
 
@@ -69,12 +80,22 @@ public class CombatManager : SerializedMonoBehaviour
 
     private IEnumerator StartDungeon()
     {
+        actionTargetDisplayer.gameObject.SetActive(true);
+        combatDisplayer.gameObject.SetActive(true);
+
         while(rooms.Count > 0)
         {
             yield return StartNewCombat();
         }
+
         rooms.Add(bossRoom);
         yield return StartNewCombat();
+
+        actionTargetDisplayer.gameObject.SetActive(false);
+        combatDisplayer.gameObject.SetActive(false);
+
+        endScreen.gameObject.SetActive(true);
+        endScreen.DisplayEnding(playerOrder);
     }
 
     private IEnumerator StartNewCombat()
@@ -90,7 +111,7 @@ public class CombatManager : SerializedMonoBehaviour
 
     private void InitializeRoom()
     {
-        enemyCombatants = new Dictionary<Controller.Direction, Enemy>();
+        enemyCombatants = new Dictionary<Controller.Button, Enemy>();
         Room room = DrawRandomRoom();
 
         int counter = 0;
@@ -109,29 +130,41 @@ public class CombatManager : SerializedMonoBehaviour
     {
         foreach (Player player in playerOrder)
         {
-            Debug.Log("It is " + player.name + " turn");
-            actionTargetDisplayer.DisplayAction(player);
-            yield return GetActionInput();
-            Debug.Log("Action Selected: " + actionSelection.ToString());
-
-            DisplayTargets(player);
-            yield return GetTargetInput(player);
-            Debug.Log("Target Selected: " + targetSelection.name);
-
-            player.TakeInput(actionSelection, targetSelection);
-            UpdateCombatants();
-            combatDisplayer.DisplayCombatants(playerCombatants, enemyCombatants);
+            if (!player.IsDead && enemyCombatants.Count > 0) {
+                yield return HandlePlayerTurn(player);
+            }
         }
         foreach (Enemy enemy in enemyOrder)
         {
-            Debug.Log("It is " + enemy.name + " turn");
-
-            Player randomTarget = playerOrder[Random.Range(0, playerOrder.Count)];
-            Debug.Log("Target Selected: " + randomTarget.name);
-
-            enemy.PerformRandomAction(randomTarget);
-            combatDisplayer.DisplayCombatants(playerCombatants, enemyCombatants);
+            HandleEnemyTurn(enemy);
         }
+    }
+
+    private void HandleEnemyTurn(Enemy enemy)
+    {
+        Debug.Log("It is " + enemy.name + " turn");
+
+        Player randomTarget = playerOrder[Random.Range(0, playerOrder.Count)];
+        Debug.Log("Target Selected: " + randomTarget.name);
+
+        enemy.PerformRandomAction(randomTarget);
+        combatDisplayer.DisplayCombatants(playerCombatants, enemyCombatants);
+    }
+
+    private IEnumerator HandlePlayerTurn(Player player)
+    {
+        Debug.Log("It is " + player.name + " turn");
+        actionTargetDisplayer.DisplayAction(player);
+        yield return GetActionInput();
+        Debug.Log("Action Selected: " + actionSelection.ToString());
+
+        DisplayTargets(player);
+        yield return GetTargetInput(player);
+        Debug.Log("Target Selected: " + targetSelection.name);
+
+        player.TakeInput(actionSelection, targetSelection);
+        UpdateCombatants();
+        combatDisplayer.DisplayCombatants(playerCombatants, enemyCombatants);
     }
 
     private void DisplayTargets(Player player)
@@ -208,13 +241,13 @@ public class CombatManager : SerializedMonoBehaviour
         Controller.rightInput -= GetRightInput;
     }
 
-    private void GetLeftInput(Controller.Direction input)
+    private void GetLeftInput(Controller.Button input)
     {
         lastInputDirection = input;
         lastInputType = InputTypes.left;
     }
 
-    public void GetRightInput(Controller.Direction input)
+    public void GetRightInput(Controller.Button input)
     {
         lastInputDirection = input;
         lastInputType = InputTypes.right;

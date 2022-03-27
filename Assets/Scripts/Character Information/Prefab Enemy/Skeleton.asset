@@ -23,6 +23,7 @@ MonoBehaviour:
     SerializationNodes: []
   characterName: Skeleton
   maxHealth: 0
+  animation: {fileID: 9100000, guid: 0f507948e84472e4bbcebebe4ef3db8a, type: 2}
   hasBonus: 1
   bonusAction:
     actionName: 

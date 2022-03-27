@@ -23,6 +23,7 @@ MonoBehaviour:
     SerializationNodes: []
   characterName: Zombie
   maxHealth: 4
+  animation: {fileID: 9100000, guid: 09775ad9c3f27024699451df05a7a8d3, type: 2}
   hasBonus: 0
   bonusAction:
     actionName: 

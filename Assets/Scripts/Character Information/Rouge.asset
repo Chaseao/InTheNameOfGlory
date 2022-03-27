@@ -1,0 +1,172 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe679468944d2fb459423a2cc1eddb73, type: 3}
+  m_Name: Rouge
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: characterActions
+      Entry: 7
+      Data: 0|System.Collections.Generic.Dictionary`2[[Controller+Button, Assembly-CSharp],[ActionInformation,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 1|System.Collections.Generic.EnumEqualityComparer`1[[Controller+Button,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 4
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 0
+    - Name: $v
+      Entry: 7
+      Data: 2|ActionInformation, Assembly-CSharp
+    - Name: actionName
+      Entry: 1
+      Data: Fireball
+    - Name: actionType
+      Entry: 3
+      Data: 0
+    - Name: groupAction
+      Entry: 5
+      Data: false
+    - Name: actionStat
+      Entry: 3
+      Data: 3
+    - Name: failChance
+      Entry: 4
+      Data: 0.2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 1
+    - Name: $v
+      Entry: 7
+      Data: 3|ActionInformation, Assembly-CSharp
+    - Name: actionName
+      Entry: 1
+      Data: Mind over Matter
+    - Name: actionType
+      Entry: 3
+      Data: 1
+    - Name: groupAction
+      Entry: 5
+      Data: false
+    - Name: actionStat
+      Entry: 3
+      Data: 2
+    - Name: failChance
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 2
+    - Name: $v
+      Entry: 7
+      Data: 4|ActionInformation, Assembly-CSharp
+    - Name: actionName
+      Entry: 1
+      Data: Let me see that...
+    - Name: actionType
+      Entry: 3
+      Data: 2
+    - Name: groupAction
+      Entry: 5
+      Data: false
+    - Name: actionStat
+      Entry: 3
+      Data: 1
+    - Name: failChance
+      Entry: 4
+      Data: 0.2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 3
+    - Name: $v
+      Entry: 7
+      Data: 5|ActionInformation, Assembly-CSharp
+    - Name: actionName
+      Entry: 1
+      Data: Meditate
+    - Name: actionType
+      Entry: 3
+      Data: 3
+    - Name: groupAction
+      Entry: 5
+      Data: false
+    - Name: actionStat
+      Entry: 3
+      Data: 0
+    - Name: failChance
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  characterName: Selena the Sly
+  maxHealth: 10
+  animation: {fileID: 9100000, guid: 5299c49042b64a0419ebae075d46d175, type: 2}
