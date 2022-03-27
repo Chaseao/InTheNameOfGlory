@@ -14,7 +14,9 @@ public class CombatantDisplayer : MonoBehaviour
     [SerializeField] Image backgroundImage;
     [SerializeField] Image backgroundBorder;
 
-    public void Display(Combatant combatant)
+    int lastGold;
+
+    public void Display(Combatant combatant, bool hideGold = false)
     {
         combatantImage.enabled = true;
         combatantAnimation.enabled = true;
@@ -23,12 +25,22 @@ public class CombatantDisplayer : MonoBehaviour
         healthIcon.enabled = true;
         combatantHealth.text = combatant.CurrentHealth + " / " + combatant.CharacterInformation.MaxHealth;
         goldIcon.enabled = true;
-        combatantGold.text = "x "+ combatant.CurrentGold;
+
+        if (!hideGold)
+        {
+            lastGold = combatant.CurrentGold;
+            combatantGold.text = "x " + combatant.CurrentGold;
+        }
+        else
+        {
+            combatantGold.text = "x " + lastGold;
+        }
+
         backgroundImage.enabled = true;
         backgroundBorder.enabled = true;
     }
 
-    public void Clear()
+    public void Clear(bool hideGold = false)
     {
         combatantName.text = "";
         combatantHealth.text = "";

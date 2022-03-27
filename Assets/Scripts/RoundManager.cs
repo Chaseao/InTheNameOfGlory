@@ -66,7 +66,7 @@ public class RoundManager : SerializedMonoBehaviour
         Debug.Log("Target Selected: " + targetSelection.name);
 
         player.TakeInput(actionSelection, targetSelection);
-        UpdateCombatants();
+        UpdateCombatants(true);
     }
 
     private void DisplayTargets(Player player)
@@ -85,11 +85,11 @@ public class RoundManager : SerializedMonoBehaviour
         actionTargetDisplayer.DisplayTargets(validPlayerTargets, validEnemyTargets);
     }
 
-    private void UpdateCombatants()
+    private void UpdateCombatants(bool hideGold = false)
     {
         RemoveDeadPlayers();
         RemoveDeadEnemies();
-        combatDisplayer.DisplayCombatants(combatInformation.PlayerCombatants, combatInformation.EnemyCombatants);
+        combatDisplayer.DisplayCombatants(combatInformation.PlayerCombatants, combatInformation.EnemyCombatants, hideGold);
     }
 
     private void RemoveDeadPlayers()

@@ -8,7 +8,7 @@ public class CombatDisplayer : SerializedMonoBehaviour
     [SerializeField] Dictionary<Controller.InputTypes, CombatantDisplayer> playerDisplays = new Dictionary<Controller.InputTypes, CombatantDisplayer>();
     [SerializeField] Dictionary<Controller.InputTypes, CombatantDisplayer> enemyDisplays = new Dictionary<Controller.InputTypes, CombatantDisplayer>();
 
-    public void DisplayCombatants(Dictionary<Controller.InputTypes, Player> players, Dictionary<Controller.InputTypes, Enemy> enemies)
+    public void DisplayCombatants(Dictionary<Controller.InputTypes, Player> players, Dictionary<Controller.InputTypes, Enemy> enemies, bool hideGold = false)
     {
         foreach(var display in playerDisplays.Values)
         {
@@ -17,7 +17,7 @@ public class CombatDisplayer : SerializedMonoBehaviour
 
         foreach(var player in players)
         {
-            playerDisplays[player.Key].Display(player.Value);
+            playerDisplays[player.Key].Display(player.Value, hideGold && !player.Value.IsDead);
         }
 
         foreach(var display in enemyDisplays.Values)
