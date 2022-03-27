@@ -24,3 +24,7 @@ MonoBehaviour:
   rooms:
   - {fileID: 11400000, guid: ac48b488c838f3e49b7ed8cb123890d7, type: 2}
   - {fileID: 11400000, guid: 45cb157ac0a05c74c991047d373b549e, type: 2}
+  - {fileID: 11400000, guid: df83b06ab1cbb4d10867c6798b91ab68, type: 2}
+  - {fileID: 11400000, guid: 1191b1020599e70458ae2d43636d00bc, type: 2}
+  - {fileID: 11400000, guid: 87bafe6d28e29470b922fad2903d1695, type: 2}
+  - {fileID: 11400000, guid: 97f3ef80848434d49811bded7bf19ab1, type: 2}

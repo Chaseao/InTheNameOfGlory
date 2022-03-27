@@ -17,6 +17,7 @@ MonoBehaviour:
     SerializedBytes: 
     ReferencedUnityObjects:
     - {fileID: 11400000, guid: 01185b17a9d2a440d8d61d328d66cce7, type: 2}
+    - {fileID: 11400000, guid: a08b6f32dc5939a4f9b31132c32a1b60, type: 2}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -24,11 +25,11 @@ MonoBehaviour:
     SerializationNodes:
     - Name: enemies
       Entry: 7
-      Data: 0|System.Collections.Generic.Dictionary`2[[Controller+Direction, Assembly-CSharp],[EnemyInformation,
+      Data: 0|System.Collections.Generic.Dictionary`2[[Controller+Button, Assembly-CSharp],[EnemyInformation,
         Assembly-CSharp]], mscorlib
     - Name: comparer
       Entry: 7
-      Data: 1|System.Collections.Generic.EnumEqualityComparer`1[[Controller+Direction,
+      Data: 1|System.Collections.Generic.EnumEqualityComparer`1[[Controller+Button,
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
@@ -41,16 +42,28 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 12
-      Data: 1
+      Data: 2
     - Name: 
       Entry: 7
       Data: 
     - Name: $k
       Entry: 3
-      Data: 0
+      Data: 2
     - Name: $v
       Entry: 10
       Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 1
+    - Name: $v
+      Entry: 10
+      Data: 1
     - Name: 
       Entry: 8
       Data: 

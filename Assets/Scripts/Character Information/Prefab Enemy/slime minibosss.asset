@@ -22,7 +22,7 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   characterName: 
-  maxHealth: 0
+  maxHealth: 25
   animation: {fileID: 0}
   hasBonus: 0
   bonusAction:
@@ -35,6 +35,6 @@ MonoBehaviour:
     actionName: 
     actionType: 0
     groupAction: 0
-    actionStat: 0
+    actionStat: 3
     failChance: 0
   initialGold: 0
