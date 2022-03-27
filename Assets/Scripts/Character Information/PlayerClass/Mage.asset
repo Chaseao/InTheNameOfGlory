@@ -23,11 +23,11 @@ MonoBehaviour:
     SerializationNodes:
     - Name: characterActions
       Entry: 7
-      Data: 0|System.Collections.Generic.Dictionary`2[[Controller+Button, Assembly-CSharp],[ActionInformation,
+      Data: 0|System.Collections.Generic.Dictionary`2[[Controller+InputTypes, Assembly-CSharp],[ActionInformation,
         Assembly-CSharp]], mscorlib
     - Name: comparer
       Entry: 7
-      Data: 1|System.Collections.Generic.EnumEqualityComparer`1[[Controller+Button,
+      Data: 1|System.Collections.Generic.EnumEqualityComparer`1[[Controller+InputTypes,
         Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
@@ -168,5 +168,5 @@ MonoBehaviour:
       Entry: 8
       Data: 
   characterName: Master Charles
-  maxHealth: 10
+  maxHealth: 20
   animation: {fileID: 9100000, guid: 234e99f99c067f448b431bf3288b6b17, type: 2}

@@ -168,5 +168,5 @@ MonoBehaviour:
       Entry: 8
       Data: 
   characterName: Selena the Sly
-  maxHealth: 10
+  maxHealth: 25
   animation: {fileID: 9100000, guid: 5299c49042b64a0419ebae075d46d175, type: 2}
