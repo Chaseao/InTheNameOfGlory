@@ -5,10 +5,10 @@ using Sirenix.OdinInspector;
 
 public class CombatDisplayer : SerializedMonoBehaviour
 {
-    [SerializeField] Dictionary<Controller.Button, CombatantDisplayer> playerDisplays = new Dictionary<Controller.Button, CombatantDisplayer>();
-    [SerializeField] Dictionary<Controller.Button, CombatantDisplayer> enemyDisplays = new Dictionary<Controller.Button, CombatantDisplayer>();
+    [SerializeField] Dictionary<Controller.InputTypes, CombatantDisplayer> playerDisplays = new Dictionary<Controller.InputTypes, CombatantDisplayer>();
+    [SerializeField] Dictionary<Controller.InputTypes, CombatantDisplayer> enemyDisplays = new Dictionary<Controller.InputTypes, CombatantDisplayer>();
 
-    public void DisplayCombatants(Dictionary<Controller.Button, Player> players, Dictionary<Controller.Button, Enemy> enemies)
+    public void DisplayCombatants(Dictionary<Controller.InputTypes, Player> players, Dictionary<Controller.InputTypes, Enemy> enemies)
     {
         foreach(var display in playerDisplays.Values)
         {

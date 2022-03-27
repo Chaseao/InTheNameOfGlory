@@ -6,10 +6,15 @@ public class Player : Combatant
 {
     [SerializeField] PlayerInformation playerInformation;
 
-    public Dictionary<Controller.Button, ActionInformation> Actions => playerInformation.CharacterActions;
+    public Dictionary<Controller.InputTypes, ActionInformation> Actions => playerInformation.CharacterActions;
     public override CharacterInformation CharacterInformation => playerInformation;
 
-    public void TakeInput(Controller.Button input, Combatant target)
+    public void SetCharacter(PlayerInformation newPlayer)
+    {
+        playerInformation = newPlayer;
+    }
+
+    public void TakeInput(Controller.InputTypes input, Combatant target)
     {
         ActionInformation action = playerInformation.CharacterActions[input];
 
@@ -21,7 +26,7 @@ public class Player : Combatant
         }
     }
 
-    public bool IsValidTarget(Controller.Button input, Combatant target)
+    public bool IsValidTarget(Controller.InputTypes input, Combatant target)
     {
         bool isValid = true;
         ActionTypes actionType = playerInformation.CharacterActions[input].Type;

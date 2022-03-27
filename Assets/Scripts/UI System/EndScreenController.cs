@@ -69,20 +69,20 @@ public class EndScreenController : MonoBehaviour
         Controller.rightInput += HandleWinnerMenu;
     }
 
-    private void HandleWinnerMenu(Controller.Button input)
+    private void HandleWinnerMenu(Controller.InputTypes input)
     {
         switch (input)
         {
-            case Controller.Button.Up:
+            case Controller.InputTypes.Up:
                 break;
-            case Controller.Button.Left:
+            case Controller.InputTypes.Left:
                 break;
-            case Controller.Button.Right:
+            case Controller.InputTypes.Right:
                 Controller.rightInput -= HandleWinnerMenu;
-                FindObjectOfType<CombatManager>().StartGame();
+                FindObjectOfType<IntroScreen>().OpenTitlePage();
                 gameObject.SetActive(false);
                 break;
-            case Controller.Button.Down:
+            case Controller.InputTypes.Down:
                 Controller.rightInput -= HandleWinnerMenu;
                 Application.Quit();
                 break;

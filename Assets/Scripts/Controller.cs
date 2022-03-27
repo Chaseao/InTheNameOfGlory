@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class Controller : MonoBehaviour
 {
-    public enum Button
+    public enum InputTypes
     {
         Up,
         Left,
@@ -13,16 +13,16 @@ public class Controller : MonoBehaviour
         Down
     }
 
-    public delegate void LeftInput(Button direction);
+    public delegate void LeftInput(InputTypes direction);
     public static event LeftInput leftInput;
-    public delegate void RightInput(Button direction);
+    public delegate void RightInput(InputTypes direction);
     public static event RightInput rightInput;
     public delegate void Select();
     public static event Select select;
 
     public void OnLeftInput(InputAction.CallbackContext context)
     {
-        Button direction = DirectionConverter(context.ReadValue<Vector2>());
+        InputTypes direction = DirectionConverter(context.ReadValue<Vector2>());
 
         if (context.started)
         {
@@ -32,7 +32,7 @@ public class Controller : MonoBehaviour
 
     public void OnRightInput(InputAction.CallbackContext context)
     {
-        Button direction = DirectionConverter(context.ReadValue<Vector2>());
+        InputTypes direction = DirectionConverter(context.ReadValue<Vector2>());
 
         if (context.started)
         {
@@ -48,28 +48,28 @@ public class Controller : MonoBehaviour
         }
     }
 
-    private Button DirectionConverter(Vector2 directionToConvert)
+    private InputTypes DirectionConverter(Vector2 directionToConvert)
     {
-        Button convertedDirection;
+        InputTypes convertedDirection;
 
         float x = directionToConvert.x;
         float y = directionToConvert.y;
 
         if(x > 0)
         {
-            convertedDirection = Button.Right;
+            convertedDirection = InputTypes.Right;
         }
         else if (x < 0)
         {
-            convertedDirection = Button.Left;
+            convertedDirection = InputTypes.Left;
         }
         else if (y > 0)
         {
-            convertedDirection = Button.Up;
+            convertedDirection = InputTypes.Up;
         }
         else
         {
-            convertedDirection = Button.Down;
+            convertedDirection = InputTypes.Down;
         }
 
         return convertedDirection;
