@@ -50,13 +50,34 @@ public abstract class Combatant : MonoBehaviour
         switch (action.Type)
         {
             case ActionTypes.Damage:
-                target.TakeDamage(action.ActionStat);
+                if (action.HasRange)
+                {
+                    target.TakeDamage(Random.Range(action.ActionMin, action.ActionMin + 1));
+                }
+                else
+                {
+                    target.TakeDamage(action.ActionStat);
+                }
                 break;
             case ActionTypes.Heal:
-                target.HealDamage(action.ActionStat);
+                if (action.HasRange)
+                {
+                    target.HealDamage(Random.Range(action.ActionMin, action.ActionMin + 1));
+                }
+                else
+                {
+                    target.HealDamage(action.ActionStat);
+                }
                 break;
             case ActionTypes.Steal:
-                GainGold(target.LoseGold(action.ActionStat));
+                if (action.HasRange)
+                {
+                    GainGold(target.LoseGold(Random.Range(action.ActionMin, action.ActionMin + 1)));
+                }
+                else 
+                { 
+                    GainGold(target.LoseGold(action.ActionStat));
+                }
                 break;
             case ActionTypes.Pass:
                 break;

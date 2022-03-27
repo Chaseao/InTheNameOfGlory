@@ -1,19 +1,26 @@
-﻿using UnityEngine;
+﻿using Sirenix.OdinInspector;
+using UnityEngine;
 
 [System.Serializable]
 public class ActionInformation
 {
     [SerializeField] string actionName;
     [SerializeField] ActionTypes actionType;
-    [SerializeField] bool groupAction;
+
+    [SerializeField] bool hasRange;
+    [ShowIf("@hasRange == true")]
+    [SerializeField] int actionMin;
+    [ShowIf("@hasRange == true")]
+    [SerializeField] int actionMax;
+    [ShowIf("@hasRange == false")]
     [SerializeField] int actionStat;
-    [SerializeField, Range(0, 1)] float failChance;
 
     public string ActionName => actionName;
     public ActionTypes Type => actionType;
-    public bool GroupAction => groupAction;
+    public bool HasRange => hasRange;
+    public int ActionMin => actionMin;
+    public int ActionMax => actionMax;
     public int ActionStat => actionStat;
-    public float FailChance => failChance;
 }
 
 public enum ActionTypes
