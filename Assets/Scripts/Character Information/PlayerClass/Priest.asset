@@ -52,16 +52,16 @@ MonoBehaviour:
       Data: 2|ActionInformation, Assembly-CSharp
     - Name: actionName
       Entry: 1
-      Data: Fireball
+      Data: Prayer
     - Name: actionType
       Entry: 3
-      Data: 0
+      Data: 1
     - Name: groupAction
       Entry: 5
       Data: false
     - Name: actionStat
       Entry: 3
-      Data: 3
+      Data: 4
     - Name: failChance
       Entry: 4
       Data: 0.2
@@ -82,10 +82,10 @@ MonoBehaviour:
       Data: 3|ActionInformation, Assembly-CSharp
     - Name: actionName
       Entry: 1
-      Data: Mind over Matter
+      Data: Repel
     - Name: actionType
       Entry: 3
-      Data: 1
+      Data: 0
     - Name: groupAction
       Entry: 5
       Data: false
@@ -94,7 +94,7 @@ MonoBehaviour:
       Data: 2
     - Name: failChance
       Entry: 4
-      Data: 0
+      Data: 0.148
     - Name: 
       Entry: 8
       Data: 
@@ -121,7 +121,7 @@ MonoBehaviour:
       Data: false
     - Name: actionStat
       Entry: 3
-      Data: 1
+      Data: 3
     - Name: failChance
       Entry: 4
       Data: 0.2

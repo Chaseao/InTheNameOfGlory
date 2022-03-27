@@ -35,6 +35,6 @@ MonoBehaviour:
     actionName: Bone
     actionType: 0
     groupAction: 0
-    actionStat: 2
+    actionStat: 3
     failChance: 0
-  initialGold: 4
+  initialGold: 5

@@ -121,7 +121,7 @@ MonoBehaviour:
       Data: false
     - Name: actionStat
       Entry: 3
-      Data: 1
+      Data: 5
     - Name: failChance
       Entry: 4
       Data: 0.2

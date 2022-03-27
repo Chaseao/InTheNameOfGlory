@@ -22,19 +22,19 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   characterName: Zombie Boss
-  maxHealth: 30
+  maxHealth: 40
   animation: {fileID: 9100000, guid: 09775ad9c3f27024699451df05a7a8d3, type: 2}
   hasBonus: 1
   bonusAction:
-    actionName: 
+    actionName: Consume Flesh
     actionType: 1
     groupAction: 0
-    actionStat: 3
+    actionStat: 5
     failChance: 0
   enemyAction:
     actionName: Bite
     actionType: 0
     groupAction: 1
-    actionStat: 3
+    actionStat: 5
     failChance: 0
-  initialGold: 30
+  initialGold: 25

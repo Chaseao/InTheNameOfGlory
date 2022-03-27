@@ -29,12 +29,12 @@ MonoBehaviour:
     actionName: Raining Bones
     actionType: 1
     groupAction: 0
-    actionStat: 4
+    actionStat: 3
     failChance: 0
   enemyAction:
     actionName: Bone
     actionType: 0
     groupAction: 0
-    actionStat: 3
+    actionStat: 7
     failChance: 0
   initialGold: 25

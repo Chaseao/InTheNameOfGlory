@@ -52,7 +52,7 @@ MonoBehaviour:
       Data: 2|ActionInformation, Assembly-CSharp
     - Name: actionName
       Entry: 1
-      Data: Fireball
+      Data: Dagger
     - Name: actionType
       Entry: 3
       Data: 0
@@ -82,10 +82,10 @@ MonoBehaviour:
       Data: 3|ActionInformation, Assembly-CSharp
     - Name: actionName
       Entry: 1
-      Data: Mind over Matter
+      Data: Jab
     - Name: actionType
       Entry: 3
-      Data: 1
+      Data: 0
     - Name: groupAction
       Entry: 5
       Data: false
@@ -121,7 +121,7 @@ MonoBehaviour:
       Data: false
     - Name: actionStat
       Entry: 3
-      Data: 1
+      Data: 6
     - Name: failChance
       Entry: 4
       Data: 0.2

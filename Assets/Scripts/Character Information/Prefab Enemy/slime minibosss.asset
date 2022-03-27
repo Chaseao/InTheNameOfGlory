@@ -37,4 +37,4 @@ MonoBehaviour:
     groupAction: 0
     actionStat: 3
     failChance: 0
-  initialGold: 0
+  initialGold: 20
