@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 1362910}
   - component: {fileID: 1362912}
   - component: {fileID: 1362911}
+  - component: {fileID: 1362913}
   m_Layer: 5
   m_Name: Icon
   m_TagString: Untagged
@@ -198,6 +199,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1362909}
   m_CullTransparentMesh: 1
+--- !u!114 &1362913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1362909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3c018082d618834089c5a73d90743b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controllerIcon: {fileID: 21300000, guid: 8f7cf9b96576cc4428b9437099c848ca, type: 3}
+  keyboardIcon: {fileID: 21300000, guid: ae39ef7bc4cd70844b03d5085f9a40cb, type: 3}
+  icon: {fileID: 1362911}
 --- !u!1001 &48965058
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2978,6 +2994,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7640382191952175218, guid: 93905c72eccfc0d42b00d49ad83520c2, type: 3}
+      propertyPath: keyboardIcon
+      value: 
+      objectReference: {fileID: 21300000, guid: ae39ef7bc4cd70844b03d5085f9a40cb, type: 3}
+    - target: {fileID: 7640382191952175218, guid: 93905c72eccfc0d42b00d49ad83520c2, type: 3}
+      propertyPath: controllerIcon
+      value: 
+      objectReference: {fileID: 21300000, guid: 8f7cf9b96576cc4428b9437099c848ca, type: 3}
     - target: {fileID: 8662473296394145611, guid: 93905c72eccfc0d42b00d49ad83520c2, type: 3}
       propertyPath: m_Name
       value: Four Player Button
@@ -3682,7 +3706,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b87402aefe6de4f479d14848ce465191, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 95ab313ce340b244e84dcd863b43d13f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3873,7 +3897,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3a6ab067b408cc649b4e06498920cda2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a3b9e14901c46bb458f7ac1754d6d693, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4207,7 +4231,7 @@ PrefabInstance:
     - target: {fileID: 3680316958602547594, guid: 93905c72eccfc0d42b00d49ad83520c2, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 3a6ab067b408cc649b4e06498920cda2, type: 3}
+      objectReference: {fileID: 21300000, guid: a3b9e14901c46bb458f7ac1754d6d693, type: 3}
     - target: {fileID: 6782422806683978738, guid: 93905c72eccfc0d42b00d49ad83520c2, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -4292,6 +4316,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7640382191952175218, guid: 93905c72eccfc0d42b00d49ad83520c2, type: 3}
+      propertyPath: keyboardIcon
+      value: 
+      objectReference: {fileID: 21300000, guid: a3b9e14901c46bb458f7ac1754d6d693, type: 3}
+    - target: {fileID: 7640382191952175218, guid: 93905c72eccfc0d42b00d49ad83520c2, type: 3}
+      propertyPath: controllerIcon
+      value: 
+      objectReference: {fileID: 21300000, guid: 3a6ab067b408cc649b4e06498920cda2, type: 3}
     - target: {fileID: 8662473296394145611, guid: 93905c72eccfc0d42b00d49ad83520c2, type: 3}
       propertyPath: m_Name
       value: Quit Button
@@ -4414,6 +4446,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7640382191952175218, guid: 93905c72eccfc0d42b00d49ad83520c2, type: 3}
+      propertyPath: keyboardIcon
+      value: 
+      objectReference: {fileID: 21300000, guid: a3b9e14901c46bb458f7ac1754d6d693, type: 3}
+    - target: {fileID: 7640382191952175218, guid: 93905c72eccfc0d42b00d49ad83520c2, type: 3}
+      propertyPath: controllerIcon
+      value: 
+      objectReference: {fileID: 21300000, guid: 3a6ab067b408cc649b4e06498920cda2, type: 3}
     - target: {fileID: 8662473296394145611, guid: 93905c72eccfc0d42b00d49ad83520c2, type: 3}
       propertyPath: m_Name
       value: Three Player Button
@@ -5393,6 +5433,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7640382191952175218, guid: 93905c72eccfc0d42b00d49ad83520c2, type: 3}
+      propertyPath: keyboardIcon
+      value: 
+      objectReference: {fileID: 21300000, guid: 879ac17e36be3ed418bf5d081d3100be, type: 3}
+    - target: {fileID: 7640382191952175218, guid: 93905c72eccfc0d42b00d49ad83520c2, type: 3}
+      propertyPath: controllerIcon
+      value: 
+      objectReference: {fileID: 21300000, guid: 6af26227066b6d1429e4529fabc694f9, type: 3}
     - target: {fileID: 8662473296394145611, guid: 93905c72eccfc0d42b00d49ad83520c2, type: 3}
       propertyPath: m_Name
       value: Priest Button
@@ -6629,6 +6677,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7640382191952175218, guid: 93905c72eccfc0d42b00d49ad83520c2, type: 3}
+      propertyPath: keyboardIcon
+      value: 
+      objectReference: {fileID: 21300000, guid: 95ab313ce340b244e84dcd863b43d13f, type: 3}
+    - target: {fileID: 7640382191952175218, guid: 93905c72eccfc0d42b00d49ad83520c2, type: 3}
+      propertyPath: controllerIcon
+      value: 
+      objectReference: {fileID: 21300000, guid: b87402aefe6de4f479d14848ce465191, type: 3}
     - target: {fileID: 8662473296394145611, guid: 93905c72eccfc0d42b00d49ad83520c2, type: 3}
       propertyPath: m_Name
       value: Warrior Button
@@ -7039,6 +7095,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7640382191952175218, guid: 93905c72eccfc0d42b00d49ad83520c2, type: 3}
+      propertyPath: keyboardIcon
+      value: 
+      objectReference: {fileID: 21300000, guid: ae39ef7bc4cd70844b03d5085f9a40cb, type: 3}
+    - target: {fileID: 7640382191952175218, guid: 93905c72eccfc0d42b00d49ad83520c2, type: 3}
+      propertyPath: controllerIcon
+      value: 
+      objectReference: {fileID: 21300000, guid: 8f7cf9b96576cc4428b9437099c848ca, type: 3}
     - target: {fileID: 8579148331621388494, guid: 93905c72eccfc0d42b00d49ad83520c2, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0.5
@@ -7175,6 +7239,7 @@ GameObject:
   - component: {fileID: 1429812050}
   - component: {fileID: 1429812052}
   - component: {fileID: 1429812051}
+  - component: {fileID: 1429812053}
   m_Layer: 5
   m_Name: Icon
   m_TagString: Untagged
@@ -7239,6 +7304,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1429812049}
   m_CullTransparentMesh: 1
+--- !u!114 &1429812053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1429812049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3c018082d618834089c5a73d90743b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controllerIcon: {fileID: 21300000, guid: 8f7cf9b96576cc4428b9437099c848ca, type: 3}
+  keyboardIcon: {fileID: 21300000, guid: ae39ef7bc4cd70844b03d5085f9a40cb, type: 3}
+  icon: {fileID: 1429812051}
 --- !u!1001 &1456272354
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7473,7 +7553,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8f7cf9b96576cc4428b9437099c848ca, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ae39ef7bc4cd70844b03d5085f9a40cb, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -7501,7 +7581,7 @@ PrefabInstance:
     - target: {fileID: 3680316958602547594, guid: 93905c72eccfc0d42b00d49ad83520c2, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: b87402aefe6de4f479d14848ce465191, type: 3}
+      objectReference: {fileID: 21300000, guid: 95ab313ce340b244e84dcd863b43d13f, type: 3}
     - target: {fileID: 6782422806683978738, guid: 93905c72eccfc0d42b00d49ad83520c2, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -7586,6 +7666,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7640382191952175218, guid: 93905c72eccfc0d42b00d49ad83520c2, type: 3}
+      propertyPath: keyboardIcon
+      value: 
+      objectReference: {fileID: 21300000, guid: 95ab313ce340b244e84dcd863b43d13f, type: 3}
+    - target: {fileID: 7640382191952175218, guid: 93905c72eccfc0d42b00d49ad83520c2, type: 3}
+      propertyPath: controllerIcon
+      value: 
+      objectReference: {fileID: 21300000, guid: b87402aefe6de4f479d14848ce465191, type: 3}
     - target: {fileID: 8662473296394145611, guid: 93905c72eccfc0d42b00d49ad83520c2, type: 3}
       propertyPath: m_Name
       value: Credits Button
@@ -8515,6 +8603,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7640382191952175218, guid: 93905c72eccfc0d42b00d49ad83520c2, type: 3}
+      propertyPath: keyboardIcon
+      value: 
+      objectReference: {fileID: 21300000, guid: a3b9e14901c46bb458f7ac1754d6d693, type: 3}
+    - target: {fileID: 7640382191952175218, guid: 93905c72eccfc0d42b00d49ad83520c2, type: 3}
+      propertyPath: controllerIcon
+      value: 
+      objectReference: {fileID: 21300000, guid: 3a6ab067b408cc649b4e06498920cda2, type: 3}
     - target: {fileID: 8662473296394145611, guid: 93905c72eccfc0d42b00d49ad83520c2, type: 3}
       propertyPath: m_Name
       value: Rouge Button
@@ -8982,6 +9078,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7640382191952175218, guid: 93905c72eccfc0d42b00d49ad83520c2, type: 3}
+      propertyPath: keyboardIcon
+      value: 
+      objectReference: {fileID: 21300000, guid: 95ab313ce340b244e84dcd863b43d13f, type: 3}
+    - target: {fileID: 7640382191952175218, guid: 93905c72eccfc0d42b00d49ad83520c2, type: 3}
+      propertyPath: controllerIcon
+      value: 
+      objectReference: {fileID: 21300000, guid: b87402aefe6de4f479d14848ce465191, type: 3}
     - target: {fileID: 8662473296394145611, guid: 93905c72eccfc0d42b00d49ad83520c2, type: 3}
       propertyPath: m_Name
       value: Two Player Button
@@ -10011,6 +10115,10 @@ PrefabInstance:
 
 '
       objectReference: {fileID: 0}
+    - target: {fileID: 3680316958602547594, guid: 93905c72eccfc0d42b00d49ad83520c2, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 8f7cf9b96576cc4428b9437099c848ca, type: 3}
     - target: {fileID: 6782422806683978738, guid: 93905c72eccfc0d42b00d49ad83520c2, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -10095,6 +10203,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7640382191952175218, guid: 93905c72eccfc0d42b00d49ad83520c2, type: 3}
+      propertyPath: keyboardIcon
+      value: 
+      objectReference: {fileID: 21300000, guid: ae39ef7bc4cd70844b03d5085f9a40cb, type: 3}
+    - target: {fileID: 7640382191952175218, guid: 93905c72eccfc0d42b00d49ad83520c2, type: 3}
+      propertyPath: controllerIcon
+      value: 
+      objectReference: {fileID: 21300000, guid: 8f7cf9b96576cc4428b9437099c848ca, type: 3}
     - target: {fileID: 8662473296394145611, guid: 93905c72eccfc0d42b00d49ad83520c2, type: 3}
       propertyPath: m_Name
       value: Start Button
