@@ -14,6 +14,11 @@ public class Player : Combatant
         playerInformation = newPlayer;
     }
 
+    public void SetMaxHealthMultiplier(float multiplier)
+    {
+        playerInformation.MaxHealthMultiplier = multiplier;
+    }
+
     public void TakeInput(Controller.InputTypes input, Combatant target)
     {
         ActionInformation action = playerInformation.CharacterActions[input];

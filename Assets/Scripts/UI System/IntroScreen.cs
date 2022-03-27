@@ -132,6 +132,11 @@ public class IntroScreen : SerializedMonoBehaviour
 
         charactersTaken.Clear();
         playersActive.Clear();
+
+        foreach(var player in playerCharacterOptions)
+        {
+            player.Value.MaxHealthMultiplier = (float)(4.0 / playerCount);
+        }
         
         while(charactersTaken.Count < playerCount)
         {

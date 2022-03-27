@@ -6,7 +6,12 @@ using UnityEngine;
 public class PlayerInformation : CharacterInformation
 {
     [SerializeField] Dictionary<Controller.InputTypes, ActionInformation> characterActions = new Dictionary<Controller.InputTypes, ActionInformation>();
+    float maxHealthMultiplier = 0;
+
     public Dictionary<Controller.InputTypes, ActionInformation> CharacterActions => characterActions;
+    public float MaxHealthMultiplier { get => maxHealthMultiplier; set => maxHealthMultiplier = Mathf.Max(0, value); }
+
+    public override int MaxHealth => Mathf.RoundToInt(base.MaxHealth * maxHealthMultiplier);
 
     public string ActionsToString()
     {
@@ -14,14 +19,14 @@ public class PlayerInformation : CharacterInformation
 
         for(int i = 0; i < 31; i++) 
         {
-            actionsToString.Concat("-");
+            actionsToString = string.Concat(actionsToString, "-");
         }
 
-        actionsToString.Concat("\n");
+        actionsToString = string.Concat(actionsToString, "\n");
 
-        foreach(ActionInformation action in characterActions.Values)
+        foreach (ActionInformation action in characterActions.Values)
         {
-            actionsToString.Concat(action.ActionName + ": " + action.Type.ToString() + " " + action.ActionStat);
+            actionsToString = string.Concat(actionsToString, action.ActionName + ": " + action.Type.ToString() + " " + action.ActionStat + "\n");
         }
 
         return actionsToString;

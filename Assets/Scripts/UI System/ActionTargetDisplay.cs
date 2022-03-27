@@ -6,6 +6,7 @@ class ActionTargetDisplay : MonoBehaviour
 {
     [SerializeField] Image displayIcon;
     [SerializeField] TextMeshProUGUI displayText;
+    [SerializeField] Image buttonBackground;
     [SerializeField] Color selectable;
     [SerializeField] Color notSelectable;
 
@@ -13,6 +14,7 @@ class ActionTargetDisplay : MonoBehaviour
     {
         displayText.color = selectable;
 
+        buttonBackground.enabled = true;
         displayIcon.enabled = true;
         displayText.text = text;
     }
@@ -25,6 +27,7 @@ class ActionTargetDisplay : MonoBehaviour
 
     public void Clear()
     {
+        buttonBackground.enabled = false;
         displayIcon.enabled = false;
         displayText.text = "";
     }

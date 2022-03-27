@@ -58,7 +58,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.27450982, g: 0.3372549, b: 0.40784317, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -150,7 +150,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColor: {r: 0.27450982, g: 0.3372549, b: 0.40784317, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -267,7 +267,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6603774, g: 0.6074226, b: 0.6074226, a: 1}
+  m_Color: {r: 0.1137255, g: 0.12941177, b: 0.17254902, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -337,5 +337,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayIcon: {fileID: 8611346733709036641}
   displayText: {fileID: 8611346734235784160}
+  buttonBackground: {fileID: 8611346734712502259}
   selectable: {r: 0.09812209, g: 0.5943396, b: 0.12520634, a: 1}
   notSelectable: {r: 0.6886792, g: 0.068218224, b: 0.068218224, a: 1}

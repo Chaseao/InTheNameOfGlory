@@ -11,7 +11,7 @@ public abstract class CharacterInformation : SerializedScriptableObject
     [SerializeField] AnimatorController animation;
 
     public string CharacterName => characterName;
-    public int MaxHealth => maxHealth;
+    public virtual int MaxHealth => maxHealth;
     public AnimatorController Animation => animation;
 }
 
