@@ -27,7 +27,7 @@ public class CombatSystem : SerializedMonoBehaviour
 
         DrawRoomsFromDecks();
 
-        StartCoroutine(StartDungeon());
+        StartCoroutine(StartDungeon(new List<Player>(combatInformation.PlayerOrder)));
     }
 
     private void DrawRoomsFromDecks()
@@ -55,7 +55,7 @@ public class CombatSystem : SerializedMonoBehaviour
         return roomDrawn;
     }
 
-    private IEnumerator StartDungeon()
+    private IEnumerator StartDungeon(List<Player> playersInGame)
     {
         roundManager.gameObject.SetActive(true);
 
@@ -67,7 +67,7 @@ public class CombatSystem : SerializedMonoBehaviour
         roundManager.gameObject.SetActive(false);
 
         endScreen.gameObject.SetActive(true);
-        endScreen.DisplayEnding(combatInformation.PlayerOrder);
+        endScreen.DisplayEnding(playersInGame);
     }
 
     private IEnumerator StartNewCombat()
