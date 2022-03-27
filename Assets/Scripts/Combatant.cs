@@ -52,7 +52,7 @@ public abstract class Combatant : MonoBehaviour
             case ActionTypes.Damage:
                 if (action.HasRange)
                 {
-                    target.TakeDamage(Random.Range(action.ActionMin, action.ActionMin + 1));
+                    target.TakeDamage(Random.Range(action.ActionMin, action.ActionMax + 1));
                 }
                 else
                 {
@@ -62,7 +62,7 @@ public abstract class Combatant : MonoBehaviour
             case ActionTypes.Heal:
                 if (action.HasRange)
                 {
-                    target.HealDamage(Random.Range(action.ActionMin, action.ActionMin + 1));
+                    target.HealDamage(Random.Range(action.ActionMin, action.ActionMax + 1));
                 }
                 else
                 {
@@ -72,7 +72,7 @@ public abstract class Combatant : MonoBehaviour
             case ActionTypes.Steal:
                 if (action.HasRange)
                 {
-                    GainGold(target.LoseGold(Random.Range(action.ActionMin, action.ActionMin + 1)));
+                    GainGold(target.LoseGold(Random.Range(action.ActionMin, action.ActionMax + 1)));
                 }
                 else 
                 { 
