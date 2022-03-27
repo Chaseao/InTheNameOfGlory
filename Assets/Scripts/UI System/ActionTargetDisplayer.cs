@@ -1,15 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
+using TMPro;
 
 public class ActionTargetDisplayer : SerializedMonoBehaviour
 {
     [SerializeField] Dictionary<Controller.InputTypes, ActionTargetDisplay> leftDisplays;
     [SerializeField] Dictionary<Controller.InputTypes, ActionTargetDisplay> rightDisplays;
+    [SerializeField] TextMeshProUGUI actionDescription;
 
     public void DisplayAction(Player player)
     {
         Clear();
+        actionDescription.text = player.ActionsToString;
 
         foreach(var action in player.Actions)
         {
@@ -19,7 +22,8 @@ public class ActionTargetDisplayer : SerializedMonoBehaviour
 
     public void DisplayTargets(Dictionary<Controller.InputTypes, Player> players, Dictionary<Controller.InputTypes, Enemy> enemies)
     {
-        foreach(var player in players)
+        actionDescription.text = "";
+        foreach (var player in players)
         {
             leftDisplays[player.Key].DisplaySelectable(player.Value.CharacterInformation.CharacterName);
         }
@@ -32,6 +36,7 @@ public class ActionTargetDisplayer : SerializedMonoBehaviour
 
     public void DisplayNonTargets(Dictionary<Controller.InputTypes, Player> players, Dictionary<Controller.InputTypes, Enemy> enemies)
     {
+        actionDescription.text = "";
         foreach (var player in players)
         {
             leftDisplays[player.Key].DisplayNotSelectable(player.Value.CharacterInformation.CharacterName);
@@ -45,7 +50,8 @@ public class ActionTargetDisplayer : SerializedMonoBehaviour
 
     public void Clear()
     {
-        foreach(var display in leftDisplays.Values)
+        actionDescription.text = "";
+        foreach (var display in leftDisplays.Values)
         {
             display.Clear();
         }

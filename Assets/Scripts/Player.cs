@@ -6,6 +6,7 @@ public class Player : Combatant
 {
     [SerializeField] PlayerInformation playerInformation;
 
+    public string ActionsToString => playerInformation.ActionsToString();
     public Dictionary<Controller.InputTypes, ActionInformation> Actions => playerInformation.CharacterActions;
     public override CharacterInformation CharacterInformation => playerInformation;
 

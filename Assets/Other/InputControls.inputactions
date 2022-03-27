@@ -11,7 +11,8 @@
                     "id": "09cc6687-fc28-4055-8b8d-4e3bc0ad9e67",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Right Input",
@@ -19,7 +20,8 @@
                     "id": "54e8cf27-bcd1-4820-b86d-80e48e6e01e0",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Select",
@@ -27,7 +29,8 @@
                     "id": "c6865029-348e-4d3d-9b37-98bc3404233c",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -254,7 +257,7 @@
                 {
                     "name": "",
                     "id": "6261be5c-100f-4e97-beb6-79aa6fca5b95",
-                    "path": "<Keyboard>/enter",
+                    "path": "<Keyboard>/downArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
