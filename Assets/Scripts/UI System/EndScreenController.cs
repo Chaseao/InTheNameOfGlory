@@ -9,6 +9,8 @@ public class EndScreenController : MonoBehaviour
 {
     [SerializeField] List<PlayerResultSlot> playerResultSlots;
     [SerializeField] Image selectIcon;
+    [SerializeField] Sprite controllerIcon;
+    [SerializeField] Sprite keyboardIcon;
     [SerializeField] WinnerDisplay winnerDisplay;
     [SerializeField] GameObject resultsPage;
     [SerializeField] IntroScreen introScreen;
@@ -33,6 +35,15 @@ public class EndScreenController : MonoBehaviour
     {
         selectIcon.enabled = false;
         DisplayBackground();
+
+        if(UnityEngine.InputSystem.Gamepad.all.Count > 0)
+        {
+            selectIcon.sprite = controllerIcon;
+        }
+        else
+        {
+            selectIcon.sprite = keyboardIcon;
+        }
 
         playersInGame = players;
         playersInGame.Sort((playerOne, playerTwo) => playerOne.CurrentGold.CompareTo(playerTwo.CurrentGold));

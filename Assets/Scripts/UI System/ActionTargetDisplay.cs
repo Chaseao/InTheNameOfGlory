@@ -1,10 +1,13 @@
 ﻿using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 class ActionTargetDisplay : MonoBehaviour
 {
     [SerializeField] Image displayIcon;
+    [SerializeField] Sprite controllerIcon;
+    [SerializeField] Sprite keyboardIcon;
     [SerializeField] TextMeshProUGUI displayText;
     [SerializeField] Image buttonBackground;
     [SerializeField] Color selectable;
@@ -13,6 +16,15 @@ class ActionTargetDisplay : MonoBehaviour
     public void DisplaySelectable(string text)
     {
         displayText.color = selectable;
+
+        if(Gamepad.all.Count > 0)
+        {
+            displayIcon.sprite = controllerIcon;
+        }
+        else
+        {
+            displayIcon.sprite = keyboardIcon;
+        }
 
         buttonBackground.enabled = true;
         displayIcon.enabled = true;
