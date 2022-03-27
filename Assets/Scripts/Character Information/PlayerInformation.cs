@@ -26,7 +26,14 @@ public class PlayerInformation : CharacterInformation
 
         foreach (ActionInformation action in characterActions.Values)
         {
-            actionsToString = string.Concat(actionsToString, action.ActionName + ": " + action.Type.ToString() + " " + action.ActionStat + "\n");
+            string actionValue = action.ActionStat.ToString();
+
+            if (action.HasRange)
+            {
+                actionValue = action.ActionMin + " - " + action.ActionMax;
+            }
+
+            actionsToString = string.Concat(actionsToString, action.ActionName + ": " + action.Type.ToString() + " " + actionValue + "\n");
         }
 
         return actionsToString;
