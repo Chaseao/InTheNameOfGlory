@@ -28,13 +28,15 @@ MonoBehaviour:
   bonusAction:
     actionName: Consume Flesh
     actionType: 1
-    groupAction: 0
+    hasRange: 1
+    actionMin: 3
+    actionMax: 5
     actionStat: 5
-    failChance: 0
   enemyAction:
     actionName: Bite
     actionType: 0
-    groupAction: 1
+    hasRange: 1
+    actionMin: 3
+    actionMax: 5
     actionStat: 5
-    failChance: 0
   initialGold: 25

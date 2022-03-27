@@ -28,13 +28,15 @@ MonoBehaviour:
   bonusAction:
     actionName: Raining Bones
     actionType: 1
-    groupAction: 0
+    hasRange: 1
+    actionMin: 1
+    actionMax: 4
     actionStat: 3
-    failChance: 0
   enemyAction:
     actionName: Bone
     actionType: 0
-    groupAction: 0
+    hasRange: 1
+    actionMin: 4
+    actionMax: 7
     actionStat: 7
-    failChance: 0
   initialGold: 25

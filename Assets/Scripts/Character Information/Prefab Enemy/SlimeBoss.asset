@@ -28,13 +28,15 @@ MonoBehaviour:
   bonusAction:
     actionName: Heal
     actionType: 1
-    groupAction: 0
+    hasRange: 1
+    actionMin: 3
+    actionMax: 7
     actionStat: 7
-    failChance: 0
   enemyAction:
     actionName: Lunge
     actionType: 0
-    groupAction: 0
+    hasRange: 1
+    actionMin: 2
+    actionMax: 5
     actionStat: 5
-    failChance: 0
   initialGold: 30

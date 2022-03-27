@@ -28,13 +28,15 @@ MonoBehaviour:
   bonusAction:
     actionName: 
     actionType: 1
-    groupAction: 0
+    hasRange: 0
+    actionMin: 0
+    actionMax: 0
     actionStat: 3
-    failChance: 0
   enemyAction:
     actionName: Bone
     actionType: 0
-    groupAction: 0
+    hasRange: 1
+    actionMin: 0
+    actionMax: 3
     actionStat: 3
-    failChance: 0
-  initialGold: 5
+  initialGold: 6

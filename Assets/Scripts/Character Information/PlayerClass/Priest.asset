@@ -56,15 +56,18 @@ MonoBehaviour:
     - Name: actionType
       Entry: 3
       Data: 1
-    - Name: groupAction
+    - Name: hasRange
       Entry: 5
-      Data: false
+      Data: true
+    - Name: actionMin
+      Entry: 3
+      Data: 4
+    - Name: actionMax
+      Entry: 3
+      Data: 6
     - Name: actionStat
       Entry: 3
       Data: 4
-    - Name: failChance
-      Entry: 4
-      Data: 0.2
     - Name: 
       Entry: 8
       Data: 
@@ -86,15 +89,18 @@ MonoBehaviour:
     - Name: actionType
       Entry: 3
       Data: 0
-    - Name: groupAction
+    - Name: hasRange
       Entry: 5
-      Data: false
+      Data: true
+    - Name: actionMin
+      Entry: 3
+      Data: 2
+    - Name: actionMax
+      Entry: 3
+      Data: 4
     - Name: actionStat
       Entry: 3
       Data: 2
-    - Name: failChance
-      Entry: 4
-      Data: 0.148
     - Name: 
       Entry: 8
       Data: 
@@ -116,15 +122,18 @@ MonoBehaviour:
     - Name: actionType
       Entry: 3
       Data: 2
-    - Name: groupAction
+    - Name: hasRange
       Entry: 5
-      Data: false
+      Data: true
+    - Name: actionMin
+      Entry: 3
+      Data: 1
+    - Name: actionMax
+      Entry: 3
+      Data: 4
     - Name: actionStat
       Entry: 3
       Data: 3
-    - Name: failChance
-      Entry: 4
-      Data: 0.2
     - Name: 
       Entry: 8
       Data: 
@@ -146,14 +155,17 @@ MonoBehaviour:
     - Name: actionType
       Entry: 3
       Data: 3
-    - Name: groupAction
+    - Name: hasRange
       Entry: 5
       Data: false
-    - Name: actionStat
+    - Name: actionMin
       Entry: 3
       Data: 0
-    - Name: failChance
-      Entry: 4
+    - Name: actionMax
+      Entry: 3
+      Data: 0
+    - Name: actionStat
+      Entry: 3
       Data: 0
     - Name: 
       Entry: 8
