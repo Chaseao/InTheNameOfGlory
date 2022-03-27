@@ -32,7 +32,7 @@ MonoBehaviour:
     actionStat: 0
     failChance: 0
   enemyAction:
-    actionName: Claw
+    actionName: Bite
     actionType: 0
     groupAction: 0
     actionStat: 2

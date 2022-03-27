@@ -21,9 +21,9 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  characterName: 
+  characterName: Jr. Slime
   maxHealth: 25
-  animation: {fileID: 0}
+  animation: {fileID: 9100000, guid: 5b8cca601e58eb347935602e2d10e841, type: 2}
   hasBonus: 0
   bonusAction:
     actionName: 
@@ -32,7 +32,7 @@ MonoBehaviour:
     actionStat: 0
     failChance: 0
   enemyAction:
-    actionName: 
+    actionName: Lunge
     actionType: 0
     groupAction: 0
     actionStat: 3

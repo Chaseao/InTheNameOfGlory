@@ -21,8 +21,8 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  characterName: 
-  maxHealth: 0
+  characterName: Zombie Boss
+  maxHealth: 30
   animation: {fileID: 9100000, guid: 09775ad9c3f27024699451df05a7a8d3, type: 2}
   hasBonus: 0
   bonusAction:
@@ -32,9 +32,9 @@ MonoBehaviour:
     actionStat: 0
     failChance: 0
   enemyAction:
-    actionName: 
+    actionName: Bite
     actionType: 0
-    groupAction: 0
-    actionStat: 0
+    groupAction: 1
+    actionStat: 3
     failChance: 0
   initialGold: 0

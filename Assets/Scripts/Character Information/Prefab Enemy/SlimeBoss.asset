@@ -32,9 +32,9 @@ MonoBehaviour:
     actionStat: 5
     failChance: 0
   enemyAction:
-    actionName: Die
+    actionName: Lunge
     actionType: 0
     groupAction: 0
-    actionStat: 5
+    actionStat: 2
     failChance: 0
   initialGold: 75

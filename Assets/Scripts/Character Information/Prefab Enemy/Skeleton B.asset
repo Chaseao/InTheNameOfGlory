@@ -21,20 +21,20 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  characterName: 
-  maxHealth: 0
+  characterName: Skeleton Boss
+  maxHealth: 35
   animation: {fileID: 9100000, guid: 0f507948e84472e4bbcebebe4ef3db8a, type: 2}
-  hasBonus: 0
+  hasBonus: 1
   bonusAction:
-    actionName: 
-    actionType: 0
+    actionName: Raining Bones
+    actionType: 1
     groupAction: 0
-    actionStat: 0
+    actionStat: 4
     failChance: 0
   enemyAction:
-    actionName: 
+    actionName: Bone
     actionType: 0
     groupAction: 0
-    actionStat: 0
+    actionStat: 3
     failChance: 0
   initialGold: 0

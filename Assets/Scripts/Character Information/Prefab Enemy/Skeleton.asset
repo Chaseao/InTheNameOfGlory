@@ -22,9 +22,9 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   characterName: Skeleton
-  maxHealth: 0
+  maxHealth: 15
   animation: {fileID: 9100000, guid: 0f507948e84472e4bbcebebe4ef3db8a, type: 2}
-  hasBonus: 1
+  hasBonus: 0
   bonusAction:
     actionName: 
     actionType: 1
@@ -32,9 +32,9 @@ MonoBehaviour:
     actionStat: 3
     failChance: 0
   enemyAction:
-    actionName: 
+    actionName: Bone
     actionType: 0
     groupAction: 0
-    actionStat: 0
+    actionStat: 3
     failChance: 0
   initialGold: 0
